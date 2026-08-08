@@ -496,7 +496,7 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
         name: "Sr. Fakati Admasu", 
         role: "Narsii", 
         desc: "Narsii fayyaa fi fayyina dhukkubsattootaaf dursa kennuun tajaajilu.", 
-        image: "/images/srFakkattki.png" 
+        image: "/images/SrFakkattki.png" 
       },
     ]
   }
