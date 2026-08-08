@@ -453,7 +453,7 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
         name: "Sr. Fakati Admasu", 
         role: "Nurse", 
         desc: "Caring nursing staff focused on comfort, recovery, and medical assistance.", 
-        image: "/images/srFakkattki.png" 
+        image: "/images/SrFakkattki.png" 
       },
     ]
   },
