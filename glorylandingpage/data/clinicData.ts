@@ -584,10 +584,6 @@ export const FAQ_DATA: Record<string, FaqSectionContent> = {
         answer: "Qorannoo dhiigaa, keemikaalii qaamaa, fi vaayirasii garaagaraa laaboraatorii keenya keessatti saffisaan hojjetamee deebii sirrii kenna."
       },
       {
-        question: "Kilinikicha keessatti farmaasii ni jiraa?",
-        answer: "Eeyyee, farmaasiin keenya qoricha qulqullina qabu qopheessuu fi qajeelfama fayyadamaa kennuuf qophaa'eera."
-      },
-      {
         question: "Yeroo jalqabaaf dhufuun maaliif qabaachuu qaba?",
         answer: "Waraqaa eenyummaa, ragaa fayyaa kanaan duraa, fi qoricha amma fudhachaa jirtan qabatanii dhufuun barbaachisaadha."
       },
@@ -616,7 +612,7 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
         comment: "The maternal care team gave me wonderful guidance throughout my pregnancy. I am deeply grateful for their professionalism and warmth."
       },
       {
-        name: "Tesfaye Bekele",
+        name: "Tigist Asmera",
         role: "Community Member",
         comment: "Finding a reliable medical center with an internal medicine specialist like Dr. Gemechis in Kellem Wollega has been a true blessing for our family."
       }
@@ -628,17 +624,17 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     subtitle: "Waa'ee tajaajila keenyaa hawaasa irraa yaada kennaman dubbisaa.",
     list: [
       {
-        name: "Abera Demissie",
+        name: "Abonesh Tesfaye",
         role: "Jireenya Naannoo",
-        comment: "Kilinikiin Gloorii tajaajila gaarii Dambi Doolloo fiduu isaatiif galatoomuu qaba. Ogeeyyiin hedduu hojii isaaniifaman."
+        comment: "Kilinikiin Gloorii tajaajila gaarii Ogeeyyii fayyaa muuxannoo qaban Dambi Doolloo keessatti fiduu isaatiif galatoomuu qaba."
       },
       {
         name: "Hanna Tadesse",
         role: "Haadha Manaa",
-        comment: "Kutaa kunuunsa haadholii irraa gorsa gaarii argadheera. Galatoomaa jechuu barbaada."
+        comment: "tajaajila yaalaa ga'aafi gorsa gaarii argadheera."
       },
       {
-        name: "Tesfaye Bekele",
+        name: "Tigist Asmera",
         role: "Hawaasa Naannoo",
         comment: "Qellem Wallaggaa keessatti ogeessa dhukkuboota keessoo akka Dr. Gemechis argachuun maatii keenyaaf eebba guddaadha."
       }
