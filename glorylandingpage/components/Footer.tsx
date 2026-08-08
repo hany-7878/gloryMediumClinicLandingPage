@@ -75,13 +75,12 @@ export default function Footer({ language }: FooterProps) {
               </li>
             </ul>
           </div>
-
         </div>
 
         {/* Bottom Bar: Copyright & Socials */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} {CLINIC.name}. {language === 'en' ? "All rights reserved." : "Mirootii hundi eegamaadha."}
+            &copy; {new Date().getFullYear()} {CLINIC.name}. {language === 'en' ? "All rights reserved." : "Mirgi hundi eegamaadha."}
           </p>
 
           <div className="flex items-center gap-3">

@@ -28,6 +28,7 @@ export interface ClinicConfig {
   emergencyPhone: string;
   heroImages: string[];
   founderImage: string;
+  founderName: string;
   logoUrl: string;
   location: string;
   founder: FounderConfig;
@@ -154,6 +155,37 @@ export interface CtaContent {
 }
 
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface FaqSectionContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  items: FaqItem[];
+}
+
+export interface TestimonialItem {
+  name: string;
+  role: string;
+  comment: string;
+}
+
+export interface TestimonialsSectionContent {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  list: TestimonialItem[];
+}
+
+export interface InsurancePartner {
+  name: string;
+  logoText: string;
+}
+
+
 export const CLINIC: ClinicConfig = {
   name: "Glory Medium Clinic",
   logoText: "Glory",
@@ -162,8 +194,9 @@ export const CLINIC: ClinicConfig = {
   address: "Kellem Wollega Zone, Dembi Dolo, Ethiopia",
   location: "Dembi Dolo, Kellem Wollega Zone, Ethiopia",
   phone: "+251 911918330",
+  founderName: "Dr. Gemechis Mokonnin",
   phoneHref: "tel:+251 911918330",
-  email: "info@glorymediumclinic.com",
+  email: "gemeayana7@gmail.com",
   whatsapp: "+251 911918330",
   whatsappNumber: "+251 911918330",
   emergencyPhone: "+251 911918330",
@@ -189,7 +222,7 @@ export const CLINIC: ClinicConfig = {
     },
     bio: {
       en: "Founded in 2016 (EC), Glory Medium Clinic was established by Dr. Gemechis Mokonnin, a dedicated specialist internist. With a vision to deliver compassionate, high-standard, and advanced internal medicine healthcare, Dr. Gemechis brings extensive professional expertise to serve the community of Dembi Dolo and beyond.",
-      om: "Kiliniikiin Giddu-galeessaa Gloorii Bara 2016 (E.C) Dr. Gemechis Mokonnin, ogeessa dhukkuboota keessooatiin hundaa'e. Tajaajila fayyaa amansiisaa, olaanaa fi qulqullina qabu hawaasa Dambi Dooloo fi naannoo isaaniif kennuuf kutannoon hojjechaa jira."
+      om: "Kiliniikiin Giddu-galeessaa Gloorii Bara 2016 (E.C) Dr. Gemechis Mokonnin, ogeessa dhukkuboota keessootiin kan hundaa'e yoo ta'uu. Tajaajila fayyaa amansiisaa, olaanaa fi qulqullina qabu hawaasa Dambi Dooloo fi naannoo isaaniif kennuuf kutannoon hojjechaa jira."
     },
     imageUrl: "/images/DRGame.jpg"
   },
@@ -223,14 +256,14 @@ export const CTA_CONTENT: Record<string, CtaContent> = {
     hoursWeekend: "Sunday: Emergency Only"
   },
   om: {
-    eyebrow: "Kunuunsaaf Qophaa'aa?",
-    title: "Fayyaa Keessani Dursa Keenya",
+    eyebrow: "Kunuunsaaf barbaaddanii?",
+    title: "Fayyaa Keessan Dursa Keenya",
     subtitle: "Kilinika keenya Dambi Doolloo jiru daawwadhaa ykn gareen balaa tasaa keenya quunnamaa.",
     body: "Tajaajila fayyaa guutuu ogeeyyii olaanaatiin isinii kennina.",
     buttonText: "Beellama Qabadhu",
     emergencyText: "Tajaajila Balaa Tasaa Sa'aa 24 Jira",
     callLabel: "Bilbilaan Quunnamaa",
-    whatsappLabel: "WhatsApp irratti Nu Haasa'aa",
+    whatsappLabel: "WhatsApp'n quunnamuuf",
     hoursLabel: "Sa'aatii Hojii",
     hoursWeekday: "Wiixata - Sanbata: Ganama 2:00 - Halkan 2:00",
     hoursWeekend: "Dilbata: Balaa Tasaa Qofa"
@@ -290,15 +323,15 @@ export const WHY_US: Record<string, WhyUsContent> = {
     boxDesc: "Established with a visionary mission to bridge healthcare gaps, we bring professional diagnostics, certified medications, and emergency readiness under one roof.",
     buttonText: "Learn More About Us",
     features: [
-      { title: "Decade of Local Trust", desc: "Serving families across Kellem Wollega with consistent high-standard medical attention." },
+      { title: "more than two years of Local Trust", desc: "Serving families across Kellem Wollega with consistent high-standard medical attention." },
       { title: "Advanced Diagnostics", desc: "Reliable laboratory equipment ensuring accurate results for rapid treatment plans." },
       { title: "Compassionate Staff", desc: "Experienced doctors and nurses who prioritize dignity, comfort, and attentive listening." }
     ]
   },
   om: {
     title: "Maaliif Glory Medium Clinic Filattu?",
-    subtitle: "Dambi Doolloo keessatti qulqullina tajaajila fayyaa, dhihaannaa hawaasaa, fi amanammummaan kan beekamu.",
-    boxTitle: "Fayyaa Keessaniif Qophaa'eera",
+    subtitle: "Dambi Doolloo keessatti qulqullina tajaajila fayyaafi amanammummaan kan beekamu.",
+    boxTitle: "Fayyaa Keessaniif",
     boxDesc: "Hanqinoota tajaajila fayyaa furuuf kan hundaa'e, qorannoo laaboraatorii ammayyaa fi qoricha qulqullina qabu waliin isin tajaajilla.",
     buttonText: "Waa'ee Keenya Dabalataan Beeka",
     features: [
@@ -318,12 +351,12 @@ export const ABOUT_CONTENT: Record<string, AboutContent> = {
     quote: "“Healthcare is not just about treating an illness; it is about honoring the dignity of every patient.”"
   },
   om: {
-    eyebrow: "Waa'ee Keenya",
-    title: "Bara 2016 (E.C) irraa eegalee Dambi Doolloo keessatti kunuunsa fayyaa kennina",
-    p1: "Glory Medium Clinic hojii hawaasaa irraa kaasee hanga buufata fayyaa olaanaatti guddateera. Dr. Gemechis Mokonnin, ogeessa dhukkuboota keessootiin kan hundaa'e, tajaajila ammayyaa fi dhihaannaa hawaasaa walitti fida.",
-    p2: "Ergamni keenya salphaadha: Naannoo Qellem Wallaggaa keessatti tajaajila fayyaa qulqullina qabu nama hundaa biraan gahuu.",
-    quote: "“Kunuunsa fayyaa jechuun dhukkuba qofa yaaluu miti; kabajaa dhukkubsataa hunda eeguudha.”"
-  }
+  eyebrow: "Waa'ee Keenya",
+  title: "Bara 2016 (E.C) irraa eegalee Dambi Doolloo keessatti kunuunsa fayyaa qulqullina qabu kennuun beekamna",
+  p1: "Kilinikiin Giddu-galeessaa Gloorii (Glory Medium Clinic) hojii hawaasaa irraa kaasee hanga buufata fayyaa giddu-galeessaatti guddateera. Ogeessa dhukkuboota keessoo Dr. Gemechis Mokonnin-tiin kan hundaa'e yoo ta'u, tajaajila ammayyaa fi dhihaannaa hawaasaa waliin walitti fiduun tajaajila kennuutti jira.",
+  p2: "Ergamni keenya salphaadha: \"Fayyaa hundaaf\" jechuudhaan naannoo Qellem Wallaggaa keessatti tajaajila fayyaa amansiisaa fi qulqullina qabu hawaasa hunda biraan gahuudha.",
+  quote: "“Kunuunsa fayyaa jechuun dhukkuba qofa yaaluu miti; kabajaa dhukkubsataa hunda eeguudha.”"
+}
 };
 
 export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
@@ -335,7 +368,7 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
       { icon: FaStethoscope, title: "General Consultation", desc: "Routine health checkups, physical assessments, and professional specialist referrals." },
       { icon: FaVial, title: "Laboratory Diagnostics", desc: "Fast and reliable blood panels, biochemistry tests, and infectious disease screenings." },
       { icon: FaPills, title: "Pharmacy Dispensary", desc: "Fully stocked pharmacy with certified medications and professional pharmaceutical guidance." },
-    //   { icon: FaHeartbeat, title: "Maternal & Child Health", desc: "Antenatal care, safe delivery counseling, childhood immunizations, and growth monitoring." },
+      { icon: FaHeartbeat, title: "Maternal Health (Antenatal Care)", desc: "Antenatal care and pregnancy health tracking up until birth." },
       { icon: FaAmbulance, title: "Emergency Stabilization", desc: "Immediate first-response triage and acute stabilization for urgent medical incidents." },
       { icon: FaUserMd, title: "Minor Surgery & Wound Care", desc: "Outpatient sterile surgical interventions, suture care, and trauma management." }
     ]
@@ -348,8 +381,8 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
       { icon: FaStethoscope, title: "Gorsa Waliigalaa", desc: "Sakatta'insa qaamaa fi gorsa ogeeyyii fayyaa." },
       { icon: FaVial, title: "Laaboraatorii Qorannoo", desc: "Qorannoo dhiigaa fi vaayirasii ariifachiisaa fi amanamaa." },
       { icon: FaPills, title: "Farmaasii Kilinikaa", desc: "Qoricha qulqullina qabu ibsa ogeeyyii waliin." },
-    //   { icon: FaHeartbeat, title: "Fayyaa Haadholii & Daa'immanii", desc: "Hordoffii ulfaa, talaallii daa'immanii, fi guddina hordofuu." },
-      { icon: FaAmbulance, title: "Tajaajila Balaa Tasaa", desc: "Gargaarsa jalqabaa ariifachiisaa haala tasaa mudataniif." },
+      { icon: FaHeartbeat, title: "Fayyaa fi qorannoo Haadholii ulfaa", desc: "Hordoffii ulfaa." },
+      { icon: FaAmbulance, title: "Tajaajila Balaa Tasaa", desc: "Gargaarsa jalqabaa dhibee ariifachiisaa akka tasaa mudataniif." },
       { icon: FaUserMd, title: "Yaalii Xixiqqaa & Madaa", desc: "Kunuunsa madaa, hodhaa, fi yaalii alaa." }
     ]
   }
@@ -372,7 +405,7 @@ export const DEPARTMENTS_DATA: Record<string, DepartmentsContent> = {
     title: "Dameewwan Fayyaa",
     subtitle: "Kunuunsa dhukkubsattootaaf dameewwan qophaa'an ilaalaa.",
     tabs: [
-      { name: "Mala'ata Waliigalaa", title: "Kutaa Tajaajila Waliigalaa", desc: "Bakka ogeeyyiin fayyaa mallattoo dhukkubaa sakatta'anii fi yaalii barbaachisaa kennan." },
+      { name: "tajaajila Waliigalaa", title: "Kutaa Tajaajila Waliigalaa", desc: "Bakka ogeeyyiin fayyaa mallattoo dhukkubaa sakatta'anii fi yaalii barbaachisaa kennan." },
       { name: "Laaboraatorii", title: "Laaboraatorii Qorannoo Ammayyaa", desc: "Qorannoo dhiigaa, vaayirasii fi keemikaalii sirriitti raawwachuuf kan qophaa'e." },
       { name: "Farmaasii", title: "Farmaasii Mirkaneeffame", desc: "Qoricha qulqullina qabu qopheessuu fi qajeelfama fayyadamaa kennuu." },
       { name: "Kunuunsa Haadholii", title: "Kutaa Fayyaa Haadholii & Daa'immanii", desc: "Hordoffii ulfaa, talaallii daa'immanii, fi gorsa fayyaa haadholii." }
@@ -382,25 +415,89 @@ export const DEPARTMENTS_DATA: Record<string, DepartmentsContent> = {
 
 export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
   en: {
-    eyebrow: "Doctors",
+    eyebrow: "Our Team",
     title: "Our Professional Staff",
     subtitle: "Dedicated medical professionals committed to your health and recovery.",
     list: [
-      { name: "Dr. Gemechis Mokonnin", role: "Founder & Consultant Internist", desc: "Founder & Consultant Internist", image: "/images/DRGame.jpg" },
-      { name: "Dr. Bekele Tadesse", role: "Medical Director & General Practitioner", desc: "Medical Director & General Practitioner", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" },
-      { name: "Nurse Almaz Kebede", role: "Head of Nursing & Maternal Care", desc: "Head of Nursing & Maternal Care", image: "https://images.unsplash.com/photo-1594824813575-27a3c31405b0?auto=format&fit=crop&w=600&q=80" },
-      { name: "Tachbele M.", role: "Senior Laboratory Technologist", desc: "Senior Laboratory Technologist", image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" }
+      { 
+        name: "Dr. Gemechis Mokonnin", 
+        role: "Founder & Consultant Internist", 
+        desc: "Experienced consultant internist specializing in comprehensive internal medicine and patient care.", 
+        image: "/images/DRGame.jpg" 
+      },
+      { 
+        name: "Dr. Firaol Rebuma", 
+        role: "General Surgeon", 
+        desc: "Skilled general surgeon providing expert surgical care and operations.", 
+        image: "/images/DRFraol.png" 
+      },
+      { 
+        name: "Sr. Sara Thomas", 
+        role: "Nurse", 
+        desc: "Compassionate nursing professional dedicated to patient support and clinical assistance.", 
+        image: "/images/srSara.png" 
+      },
+      { 
+        name: "Asabe Bacha", 
+        role: "Laboratory Technologist", 
+        desc: "Expert laboratory technologist ensuring accurate diagnostic testing and analysis.", 
+        image: "/images/asebe.png" 
+      },
+      { 
+        name: "Sr. Meti Dingeta", 
+        role: "Nurse", 
+        desc: "Dedicated nursing professional providing high-quality patient care and monitoring.", 
+        image: "/images/meti.png" 
+      },
+      { 
+        name: "Sr. Fakati Admasu", 
+        role: "Nurse", 
+        desc: "Caring nursing staff focused on comfort, recovery, and medical assistance.", 
+        image: "/images/srFakkattki.png" 
+      },
     ]
   },
   om: {
-    eyebrow: "Ogeeyyii",
-    title: "Ogeeyyii Fayyaa Keenya",
-    subtitle: "Ogeeyyii fayyaa fayyaa keessaniif qophaa'an.",
+    eyebrow: "Ogeeyyii Keenya",
+    title: "Ogeeyyii Fayyaa Kabajamoo",
+    subtitle: "Ogeeyyii fayyaa fayyaa fi fayyina keessaniif qophaa'oo ta'an.",
     list: [
-      { name: "Dr. Gemechis Mokonnin", role: "Hundaa'aa & Ogeessa Dhukkuboota Keessoo", desc: "Hundaa'aa & Ogeessa Dhukkuboota Keessoo", image: "/images/founder.jpg" },
-      { name: "Doktar Bakkalaa Taddasa", role: "Hoggansa Fayyaa & Ogeessa Waliigalaa", desc: "Hoggansa Fayyaa & Ogeessa Waliigalaa", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" },
-      { name: "Narsii Almaaz Kabbada", role: "Hogganituu Narsii & Fayyaa Haadholii", desc: "Hogganituu Narsii & Fayyaa Haadholii", image: "https://images.unsplash.com/photo-1594824813575-27a3c31405b0?auto=format&fit=crop&w=600&q=80" },
-      { name: "Taachabalee M.", role: "Ogeessa Laaboraatorii Olaanaa", desc: "Ogeessa Laaboraatorii Olaanaa", image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" }
+      { 
+        name: "Dr. Gemechis Mokonnin", 
+        role: "Hundeessaa & Ogeessa Dhukkuboota Keessoo", 
+        desc: "Ogeessa dhukkuboota keessoo fi kunuunsa fayyaa guutuu irratti muuxannoo qabu.", 
+        image: "/images/DRGame.jpg" 
+      },
+      { 
+        name: "Dr. Firaol Rebuma", 
+        role: "Ogeessa Opireeshinii Waliigalaa", 
+        desc: "Ogeessa Opireeshinii waliigalaa tajaajila baqaqsanii yaaluu kennuuf qophaa'e.", 
+        image: "/images/DRFraol.png" 
+      },
+      { 
+        name: "Sr. Sara Thomas", 
+        role: "Galmaa'e", 
+        desc: "Narsii dhibee fi haala fayyaa hordofuu irratti deeggarsa godhu.", 
+        image: "/images/srSara.png" 
+      },
+      { 
+        name: "Asabe Bacha", 
+        role: "Ogeessa Laaboraatorii", 
+        desc: "Ogeessa laaboraatorii qorannoo sirrii fi amansiisaa ta'e gaggeessu.", 
+        image: "/images/asebe.png" 
+      },
+      { 
+        name: "Sr. Meti Dingeta", 
+        role: "Narsii", 
+        desc: "Narsii kunuunsa fayyaa fi deeggarsa barbaachisaa ta'e kennu.", 
+        image: "/images/meti.png" 
+      },
+      { 
+        name: "Sr. Fakati Admasu", 
+        role: "Narsii", 
+        desc: "Narsii fayyaa fi fayyina dhukkubsattootaaf dursa kennuun tajaajilu.", 
+        image: "/images/srFakkattki.png" 
+      },
     ]
   }
 };
@@ -435,5 +532,116 @@ export const CONTACT_SECTION: Record<string, ContactSectionContent> = {
     formMessage: "Ergaa Keessan",
     formSubmit: "Ergaa Ergi",
     successMsg: "Galatoomaa! Ergaan keessan milkaa'inaan ergameera."
+  }
+};
+
+// --- UPDATED INTERFACES FOR SENIOR COMPLETENESS ---
+
+export const FAQ_DATA: Record<string, FaqSectionContent> = {
+  en: {
+    eyebrow: "FAQ",
+    title: "Frequently Asked Questions",
+    subtitle: "Find clear answers to common questions regarding our medical services, operating hours, appointments, and facilities.",
+    items: [
+      {
+        question: "Do I need to book an appointment before visiting the clinic?",
+        answer: "While we welcome walk-ins for general checkups and urgent needs, booking an appointment ahead of time ensures shorter wait times with your preferred specialist or doctor."
+      },
+      {
+        question: "Are emergency services available 24 hours a day?",
+        answer: "Yes, our emergency stabilization and triage unit is fully operational round-the-clock to handle urgent medical cases and sudden illnesses in Dembi Dolo."
+      },
+      {
+        question: "What diagnostic and laboratory services are available on-site?",
+        answer: "Our advanced laboratory handles hematology, clinical chemistry, parasitology, and rapid infectious disease screenings directly on-site to deliver fast, reliable results for treatment."
+      },
+      
+      {
+        question: "What should I bring during my first visit?",
+        answer: "Please bring any previous medical records or test results, a list of current medications you are taking, and payment/insurance details if applicable."
+      },
+      {
+        question: "How can I contact the clinic in case of an urgent inquiry?",
+        answer: "You can reach us immediately via phone at +251 911918330 or through our emergency line listed on the top bar for instant assistance."
+      }
+    ]
+  },
+  om: {
+    eyebrow: "Gaaffilee Deddeebi'amanii Ka'an",
+    title: "Gaaffilee fi Deebii",
+    subtitle: "Tajaajila fayyaa, sa'aatii hojii, beellama, fi qopheeffama kilinikichaa ilaalchisee deebii argadhaa.",
+    items: [
+      {
+        question: "Kilinika dhufuu kiyyaan dura beellama qabachuu qabaa?",
+        answer: "Tajaajila waliigalaatiif osoo hin qabatin dhufuun ni danda'ama, garuu beellamni qabachuun yeroo akka hin balleessine fi ogeessa barbaaddan argachuuf gargaara."
+      },
+      {
+        question: "Tajaajila balaa tasaa sa'aa 24 guutuu ni jiraachuu?",
+        answer: "Eeyyee, kutaan balaa tasaa fi gargaarsa jalqabaa Dambi Doolloo keessatti sa'aa 24 hojjechaa jira."
+      },
+      {
+        question: "Qorannoon laaboraatorii akkamii kilinikicha keessatti kennama?",
+        answer: "Qorannoo dhiigaa, keemikaalii qaamaa, fi vaayirasii garaagaraa laaboraatorii keenya keessatti saffisaan hojjetamee deebii sirrii kenna."
+      },
+      {
+        question: "Kilinikicha keessatti farmaasii ni jiraa?",
+        answer: "Eeyyee, farmaasiin keenya qoricha qulqullina qabu qopheessuu fi qajeelfama fayyadamaa kennuuf qophaa'eera."
+      },
+      {
+        question: "Yeroo jalqabaaf dhufuun maaliif qabaachuu qaba?",
+        answer: "Waraqaa eenyummaa, ragaa fayyaa kanaan duraa, fi qoricha amma fudhachaa jirtan qabatanii dhufuun barbaachisaadha."
+      },
+      {
+        question: "Rakkoo tasaa mudateef akkamitti nu quunnamuu dandeessu?",
+        answer: "Lakkoofsa bilbilaa +251 911918330 irratti ykn sarara balaa tasaa keenyaan yeroo kamiyyuu nu quunnamuu dandeessu."
+      }
+    ]
+  }
+};
+
+export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
+  en: {
+    eyebrow: "Testimonials",
+    title: "What Our Patients Say",
+    subtitle: "Read feedback from families and individuals who trust Glory Medium Clinic with their health and care.",
+    list: [
+      {
+        name: "Abera Demissie",
+        role: "Local Resident",
+        comment: "Glory Medium Clinic brought top-tier healthcare right to Dembi Dolo. The doctors are attentive, and the lab results are exceptionally fast."
+      },
+      {
+        name: "Hanna Tadesse",
+        role: "Mother & Patient",
+        comment: "The maternal care team gave me wonderful guidance throughout my pregnancy. I am deeply grateful for their professionalism and warmth."
+      },
+      {
+        name: "Tesfaye Bekele",
+        role: "Community Member",
+        comment: "Finding a reliable medical center with an internal medicine specialist like Dr. Gemechis in Kellem Wollega has been a true blessing for our family."
+      }
+    ]
+  },
+  om: {
+    eyebrow: "Ragaa Dhukkubsattootaa",
+    title: "Yaada Maamila Keenyaa",
+    subtitle: "Waa'ee tajaajila keenyaa hawaasa irraa yaada kennaman dubbisaa.",
+    list: [
+      {
+        name: "Abera Demissie",
+        role: "Jireenya Naannoo",
+        comment: "Kilinikiin Gloorii tajaajila gaarii Dambi Doolloo fiduu isaatiif galatoomuu qaba. Ogeeyyiin hedduu hojii isaaniifaman."
+      },
+      {
+        name: "Hanna Tadesse",
+        role: "Haadha Manaa",
+        comment: "Kutaa kunuunsa haadholii irraa gorsa gaarii argadheera. Galatoomaa jechuu barbaada."
+      },
+      {
+        name: "Tesfaye Bekele",
+        role: "Hawaasa Naannoo",
+        comment: "Qellem Wallaggaa keessatti ogeessa dhukkuboota keessoo akka Dr. Gemechis argachuun maatii keenyaaf eebba guddaadha."
+      }
+    ]
   }
 };

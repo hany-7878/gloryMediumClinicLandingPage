@@ -35,8 +35,8 @@ export default function About({ language }: AboutProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
               
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-teal-100">
-                <p className="text-xs font-bold text-teal-700 uppercase tracking-widest">Dembi Dolo Center</p>
-                <p className="text-lg font-black text-slate-900">Glory Medium Clinic Team</p>
+                <p className="text-xs font-bold text-teal-700 uppercase tracking-widest">{CLINIC.founderName}</p>
+                <p className="text-lg font-black text-slate-900">Glory Medium Clinic Founder</p>
               </div>
             </div>
           </motion.div>

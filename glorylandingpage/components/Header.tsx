@@ -54,7 +54,7 @@ export default function Header({ language }: HeaderProps) {
             href="#contact"
             className="bg-teal-700 hover:bg-teal-800 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-md shadow-teal-700/20 transition-all active:scale-95"
           >
-            {language === 'en' ? "Make an Appointment" : "Qabxii Qabadhaa"}
+            {language === 'en' ? "Make an Appointment" : "Beellama Qabachuuf"}
           </a>
         </div>
 
@@ -89,7 +89,7 @@ export default function Header({ language }: HeaderProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center justify-center gap-2 bg-teal-700 text-white py-3 rounded-xl font-bold shadow"
               >
-                {language === 'en' ? "Make an Appointment" : "Qabxii Qabadhaa"}
+                {language === 'en' ? "Make an Appointment" : "Beellama Qabachuuf"}
               </a>
             </div>
           </nav>

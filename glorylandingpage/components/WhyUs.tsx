@@ -44,7 +44,7 @@ export default function WhyUs({ language }: WhyUsProps) {
             className="lg:col-span-7 space-y-6"
           >
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-teal-700">Medicio Style Excellence</p>
+    
               <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">{t.title}</h2>
               <p className="mt-3 text-slate-600 text-base leading-relaxed">{t.subtitle}</p>
             </div>
