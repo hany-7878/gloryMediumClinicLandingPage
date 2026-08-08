@@ -222,7 +222,7 @@ export const CLINIC: ClinicConfig = {
     },
     bio: {
       en: "Founded in 2016 (EC), Glory Medium Clinic was established by Dr. Gemechis Mokonnin, a dedicated specialist internist. With a vision to deliver compassionate, high-standard, and advanced internal medicine healthcare, Dr. Gemechis brings extensive professional expertise to serve the community of Dembi Dolo and beyond.",
-      om: "Kiliniikiin Giddu-galeessaa Gloorii Bara 2016 (E.C) Dr. Gemechis Mokonnin, ogeessa dhukkuboota keessootiin kan hundaa'e yoo ta'uu. Tajaajila fayyaa amansiisaa, olaanaa fi qulqullina qabu hawaasa Dambi Dooloo fi naannoo isaaniif kennuuf kutannoon hojjechaa jira."
+      om: "Kiliinikni Giddu-galeessaa Glory Bara 2016 (EC) Dr. Gemechis Mokonnin, ogeessa dhukkuboota keessootiin kan hundaa'e yoo ta'uu. Tajaajila fayyaa amansiisaa, olaanaa fi qulqullina qabu hawaasa Dambi Doolloo fi naannoo isaaniif kennuun kutannoon hojjechaa jira."
     },
     imageUrl: "/images/DRGame.jpg"
   },
@@ -252,32 +252,32 @@ export const CTA_CONTENT: Record<string, CtaContent> = {
     callLabel: "Call Support",
     whatsappLabel: "Chat on WhatsApp",
     hoursLabel: "Working Hours",
-    hoursWeekday: "Mon - Sun: 8:00 AM - 8:00 PM",
-    hoursWeekend: "Sunday: Emergency Only"
+    hoursWeekday: "Sun - Sun: 8:30 AM - 7:00 PM",
+    hoursWeekend: "Sunday: 6:00 AM - 8:00 PM"
   },
   om: {
-    eyebrow: "Kunuunsaaf barbaaddanii?",
-    title: "Fayyaa Keessan Dursa Keenya",
-    subtitle: "Kilinika keenya Dambi Doolloo jiru daawwadhaa ykn gareen balaa tasaa keenya quunnamaa.",
+    eyebrow: "yaalii Barbaaddaniittu?",
+    title: "Fayyaan Keessan Dursa Keenya",
+    subtitle: "Kilinika keenya Dambi Doolloo jiru daawwadhaa ykn garee balaa tasaa keenya quunnamaa.",
     body: "Tajaajila fayyaa guutuu ogeeyyii olaanaatiin isinii kennina.",
-    buttonText: "Beellama Qabadhu",
-    emergencyText: "Tajaajila Balaa Tasaa Sa'aa 24 Jira",
-    callLabel: "Bilbilaan Quunnamaa",
+    buttonText: "Beellama Qabachuuf",
+    emergencyText: "Tajaajila Balaa Tasaa Sa'aa 24",
+    callLabel: "Bilbilaan Quunnamuuf",
     whatsappLabel: "WhatsApp'n quunnamuuf",
     hoursLabel: "Sa'aatii Hojii",
-    hoursWeekday: "Wiixata - Sanbata: Ganama 2:00 - Halkan 2:00",
-    hoursWeekend: "Dilbata: Balaa Tasaa Qofa"
+    hoursWeekday: "sanbata - Sanbata: Ganama 2:30 - Halkan 7:00",
+    hoursWeekend: "Sanbata: ganama 2:30 - Halkan 1:00"
   }
 };
 
 export const TOP_BAR: Record<string, TopBarContent> = {
   en: {
-    hours: "Monday - Saturday: 8:00 AM - 8:00 PM",
+    hours: "sunday - sunday: 8:30 AM - 7:00 PM",
     emergency: "Emergency 24/7 Available"
   },
   om: {
-    hours: "Wiixata - Sanbata: Ganama Sa'aa 2:00 - Halkan Sa'aa 2:00",
-    emergency: "Tajaajila Balaa Tasaa Sa'aa 24 Jira"
+    hours: "sanbata - Sanbata: Ganama Sa'aa 2:30 - Halkan Sa'aa 1:00",
+    emergency: "Tajaajila Balaa Tasaa Sa'aa 24 ni taasisna"
   }
 };
 
@@ -310,8 +310,8 @@ export const STATS: Record<string, StatItem[]> = {
   om: [
     { count: "2+", label: "Waggoota Muuxannoo", icon: FaUserMd },
     { count: "5+", label: "Ogeeyyii Fayyaa", icon: FaStethoscope },
-    { count: "10,000+", label: "Dhukkubsattoota Gargaaramte", icon: FaHeartbeat },
-    { count: "6", label: "Dameewwan Ammayyaa", icon: FaVial },
+    { count: "10,000+", label: "Dhukkubsattoota Gargaaraman", icon: FaHeartbeat },
+    { count: "6", label: "Dameewwan", icon: FaVial },
   ]
 };
 
@@ -320,7 +320,7 @@ export const WHY_US: Record<string, WhyUsContent> = {
     title: "Why Choose Glory Medium Clinic",
     subtitle: "Rooted in Dembi Dolo with a commitment to uncompromised clinical excellence, patient warmth, and dependable community care.",
     boxTitle: "Dedicated to Your Well-Being",
-    boxDesc: "Established with a visionary mission to bridge healthcare gaps, we bring professional diagnostics, certified medications, and emergency readiness under one roof.",
+    boxDesc: "Established with a visionary mission to bridge healthcare gaps, we bring professional diagnostics and emergency readiness under one roof.",
     buttonText: "Learn More About Us",
     features: [
       { title: "more than two years of Local Trust", desc: "Serving families across Kellem Wollega with consistent high-standard medical attention." },
@@ -335,9 +335,9 @@ export const WHY_US: Record<string, WhyUsContent> = {
     boxDesc: "Hanqinoota tajaajila fayyaa furuuf kan hundaa'e, qorannoo laaboraatorii ammayyaa fi qoricha qulqullina qabu waliin isin tajaajilla.",
     buttonText: "Waa'ee Keenya Dabalataan Beeka",
     features: [
-      { title: "Amantaa Waggoota lama olii", desc: "Maatii Qellem Wallaggaa tajaajiluun kunuunsa fayyaa ol'aanaa kenne." },
-      { title: "Qorannoo Ammayyaa", desc: "Meeshaalee laaboraatorii ammayyaa bu'aa sirrii kennan." },
-      { title: "Ogeeyyii Kabajaa Qaban", desc: "Ogeeyyii dursa kabajaa dhukkubsattootaa kennan." }
+      { title: "Amantaa Waggoota lama olii", desc: "Maatii Qellem Wallaggaa tajaajiluun kunuunsa fayyaa ol'aanaa kennineerra" },
+      { title: "Qorannoo Ammayyaa", desc: "Meeshaalee laaboraatorii ammayyaa bu'aa sirrii kennan qabaachuun." },
+      { title: "Ogeeyyii Kabajaa Qaban", desc: "Ogeeyyii dursa dhukkubsattootaaf kennan." }
     ]
   }
 };
@@ -353,7 +353,7 @@ export const ABOUT_CONTENT: Record<string, AboutContent> = {
   om: {
   eyebrow: "Waa'ee Keenya",
   title: "Bara 2016 (E.C) irraa eegalee Dambi Doolloo keessatti kunuunsa fayyaa qulqullina qabu kennuun beekamna",
-  p1: "Kilinikiin Giddu-galeessaa Gloorii (Glory Medium Clinic) hojii hawaasaa irraa kaasee hanga buufata fayyaa giddu-galeessaatti guddateera. Ogeessa dhukkuboota keessoo Dr. Gemechis Mokonnin-tiin kan hundaa'e yoo ta'u, tajaajila ammayyaa fi dhihaannaa hawaasaa waliin walitti fiduun tajaajila kennuutti jira.",
+  p1: "Kilinikni Giddu-galeessaa Glory (Glory Medium Clinic)  Ogeessa dhukkuboota keessoo Dr. Gemechis Mekonnen kan hundaa'e yoo ta'u, tajaajila ammayyaa fi amansiisa hawaasa biraan ga'uuf hojjecha jira.",
   p2: "Ergamni keenya salphaadha: \"Fayyaa hundaaf\" jechuudhaan naannoo Qellem Wallaggaa keessatti tajaajila fayyaa amansiisaa fi qulqullina qabu hawaasa hunda biraan gahuudha.",
   quote: "“Kunuunsa fayyaa jechuun dhukkuba qofa yaaluu miti; kabajaa dhukkubsataa hunda eeguudha.”"
 }
@@ -365,9 +365,8 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
     title: "Our Medical Services",
     subtitle: "Comprehensive health departments structured to deliver accurate diagnoses and soothing treatments.",
     items: [
-      { icon: FaStethoscope, title: "General Consultation", desc: "Routine health checkups, physical assessments, and professional specialist referrals." },
+      { icon: FaStethoscope, title: "General Consultation", desc: "Routine health checkups, physical assessments, and professional specialist." },
       { icon: FaVial, title: "Laboratory Diagnostics", desc: "Fast and reliable blood panels, biochemistry tests, and infectious disease screenings." },
-      { icon: FaPills, title: "Pharmacy Dispensary", desc: "Fully stocked pharmacy with certified medications and professional pharmaceutical guidance." },
       { icon: FaHeartbeat, title: "Maternal Health (Antenatal Care)", desc: "Antenatal care and pregnancy health tracking up until birth." },
       { icon: FaAmbulance, title: "Emergency Stabilization", desc: "Immediate first-response triage and acute stabilization for urgent medical incidents." },
       { icon: FaUserMd, title: "Minor Surgery & Wound Care", desc: "Outpatient sterile surgical interventions, suture care, and trauma management." }
@@ -375,12 +374,11 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
   },
   om: {
     eyebrow: "Tajaajila",
-    title: "Tajaajila Fayyaa Keenya",
+    title: "Tajaajila Fayyaa nuti kenninu",
     subtitle: "Qorannoo sirrii fi yaalii gaarii kennuuf dameewwan gurmaa'an.",
     items: [
       { icon: FaStethoscope, title: "Gorsa Waliigalaa", desc: "Sakatta'insa qaamaa fi gorsa ogeeyyii fayyaa." },
       { icon: FaVial, title: "Laaboraatorii Qorannoo", desc: "Qorannoo dhiigaa fi vaayirasii ariifachiisaa fi amanamaa." },
-      { icon: FaPills, title: "Farmaasii Kilinikaa", desc: "Qoricha qulqullina qabu ibsa ogeeyyii waliin." },
       { icon: FaHeartbeat, title: "Fayyaa fi qorannoo Haadholii ulfaa", desc: "Hordoffii ulfaa." },
       { icon: FaAmbulance, title: "Tajaajila Balaa Tasaa", desc: "Gargaarsa jalqabaa dhibee ariifachiisaa akka tasaa mudataniif." },
       { icon: FaUserMd, title: "Yaalii Xixiqqaa & Madaa", desc: "Kunuunsa madaa, hodhaa, fi yaalii alaa." }
@@ -390,25 +388,29 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
 
 export const DEPARTMENTS_DATA: Record<string, DepartmentsContent> = {
   en: {
-    eyebrow: "Departments",
-    title: "Medical Departments",
-    subtitle: "Explore our specialized functional units designed for optimal patient management.",
+    eyebrow: "Our Departments",
+    title: "Care for Your Health, All in One Place",
+    subtitle: "Our clinic brings together essential medical services to make it easier for you and your family to get the care you need.",
     tabs: [
-      { name: "General Medicine", title: "General Clinical & Outpatient Department", desc: "Our primary point of care where experienced general practitioners evaluate symptoms, diagnose conditions, and formulate tailored treatment strategies for acute and chronic illnesses." },
+      { name: "General Medicine", title: "General Clinical & Outpatient Department", desc: "Our primary point of care where experienced Specialists evaluate symptoms, diagnose conditions, and formulate tailored treatment strategies for acute and chronic illnesses." },
       { name: "Laboratory", title: "Advanced Diagnostic Laboratory", desc: "Equipped with dependable technology to execute hematology, parasitology, clinical chemistry, and serology tests rapidly and with absolute precision." },
-      { name: "Pharmacy", title: "Certified Clinical Pharmacy", desc: "A secure dispensary managed by qualified pharmacists ensuring proper drug dispensing, patient dosage education, and quality pharmaceutical storage." },
-      { name: "Maternal Care", title: "Maternal & Child Health Unit", desc: "Dedicated to expectant mothers and newborns, offering comprehensive antenatal screening, postnatal monitoring, nutritional guidance, and childhood vaccination schedules." }
+      // { name: "Pharmacy", title: "Certified Clinical Pharmacy", desc: "A secure dispensary managed by qualified pharmacists ensuring proper drug dispensing, patient dosage education, and quality pharmaceutical storage." },
+      {
+  name: "Maternal Care",
+  title: "Maternal & Antenatal Care",
+  desc: "Dedicated to supporting expectant mothers throughout pregnancy with regular antenatal checkups, health monitoring, nutritional guidance, and practical advice to help mothers and their babies stay healthy before birth."
+}
     ]
   },
   om: {
     eyebrow: "Dameewwan",
     title: "Dameewwan Fayyaa",
-    subtitle: "Kunuunsa dhukkubsattootaaf dameewwan qophaa'an ilaalaa.",
+    subtitle: "Kunuunsa dhukkubsattootaaf dameewwan qophaa'an ilaaluuf.",
     tabs: [
       { name: "tajaajila Waliigalaa", title: "Kutaa Tajaajila Waliigalaa", desc: "Bakka ogeeyyiin fayyaa mallattoo dhukkubaa sakatta'anii fi yaalii barbaachisaa kennan." },
       { name: "Laaboraatorii", title: "Laaboraatorii Qorannoo Ammayyaa", desc: "Qorannoo dhiigaa, vaayirasii fi keemikaalii sirriitti raawwachuuf kan qophaa'e." },
-      { name: "Farmaasii", title: "Farmaasii Mirkaneeffame", desc: "Qoricha qulqullina qabu qopheessuu fi qajeelfama fayyadamaa kennuu." },
-      { name: "Kunuunsa Haadholii", title: "Kutaa Fayyaa Haadholii & Daa'immanii", desc: "Hordoffii ulfaa, talaallii daa'immanii, fi gorsa fayyaa haadholii." }
+      // { name: "Farmaasii", title: "Farmaasii Mirkaneeffame", desc: "Qoricha qulqullina qabu qopheessuu fi qajeelfama fayyadamaa kennuu." },
+      { name: "Kunuunsa Haadholii", title: "Kutaa Fayyaa Haadholii", desc: "Hordoffii ulfaa, fi gorsa fayyaa haadholii." }
     ]
   }
 };
@@ -420,7 +422,7 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
     subtitle: "Dedicated medical professionals committed to your health and recovery.",
     list: [
       { 
-        name: "Dr. Gemechis Mokonnin", 
+        name: "Dr. Gemechis Mekonnen", 
         role: "Founder & Consultant Internist", 
         desc: "Experienced consultant internist specializing in comprehensive internal medicine and patient care.", 
         image: "/images/DRGame.jpg" 
@@ -432,7 +434,7 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
         image: "/images/DRFraol.png" 
       },
       { 
-        name: "Sr. Sara Thomas", 
+        name: "Sr.Sara Thomas", 
         role: "Nurse", 
         desc: "Compassionate nursing professional dedicated to patient support and clinical assistance.", 
         image: "/images/srSara.png" 
@@ -440,14 +442,14 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
       { 
         name: "Asabe Bacha", 
         role: "Laboratory Technologist", 
-        desc: "Expert laboratory technologist ensuring accurate diagnostic testing and analysis.", 
+        desc: "laboratory technologist ensuring accurate diagnostic testing and analysis.", 
         image: "/images/asebe.png" 
       },
       { 
-        name: "Sr. Meti Dingeta", 
+        name: "Sr.Meti Dingeta", 
         role: "Nurse", 
-        desc: "Dedicated nursing professional providing high-quality patient care and monitoring.", 
-        image: "/images/meti.png" 
+        desc: "Dedicated nursing professional providing high-quality patient care and support.", 
+        image: "/images/meti.jpg" 
       },
       { 
         name: "Sr. Fakati Admasu", 
@@ -459,11 +461,11 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
   },
   om: {
     eyebrow: "Ogeeyyii Keenya",
-    title: "Ogeeyyii Fayyaa Kabajamoo",
-    subtitle: "Ogeeyyii fayyaa fayyaa fi fayyina keessaniif qophaa'oo ta'an.",
+    title: "Ogeeyyii Fayyaa Keenya",
+    subtitle: "Ogeeyyii fayyaa fayyina keessaniif qophaa'oo ta'an.",
     list: [
       { 
-        name: "Dr. Gemechis Mokonnin", 
+        name: "Dr. Gemechis Mekonnen", 
         role: "Hundeessaa & Ogeessa Dhukkuboota Keessoo", 
         desc: "Ogeessa dhukkuboota keessoo fi kunuunsa fayyaa guutuu irratti muuxannoo qabu.", 
         image: "/images/DRGame.jpg" 
@@ -471,13 +473,13 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
       { 
         name: "Dr. Firaol Rebuma", 
         role: "Ogeessa Opireeshinii Waliigalaa", 
-        desc: "Ogeessa Opireeshinii waliigalaa tajaajila baqaqsanii yaaluu kennuuf qophaa'e.", 
+        desc: "Ogeessa Opireeshinii waliigalaa tajaajila baqaqsanii yaaluu irratti muuxannoo olaanaa qabu.", 
         image: "/images/DRFraol.png" 
       },
       { 
         name: "Sr. Sara Thomas", 
-        role: "Galmaa'e", 
-        desc: "Narsii dhibee fi haala fayyaa hordofuu irratti deeggarsa godhu.", 
+        role: "Narsii", 
+        desc: "Narsii dhibee fi haala fayyaa hordofuu irratti deeggarsa gootu.", 
         image: "/images/srSara.png" 
       },
       { 
@@ -489,13 +491,13 @@ export const DOCTORS_SECTION: Record<string, DoctorsSectionContent> = {
       { 
         name: "Sr. Meti Dingeta", 
         role: "Narsii", 
-        desc: "Narsii kunuunsa fayyaa fi deeggarsa barbaachisaa ta'e kennu.", 
-        image: "/images/meti.png" 
+        desc: "Narsii kunuunsa fayyaa fi deeggarsa barbaachisaa ta'ee Kennitu.", 
+        image: "/images/meti.jpg" 
       },
       { 
         name: "Sr. Fakati Admasu", 
         role: "Narsii", 
-        desc: "Narsii fayyaa fi fayyina dhukkubsattootaaf dursa kennuun tajaajilu.", 
+        desc: "Narsii fayyaa fi fayyina dhukkubsattootaaf dursa kennuun tajaajiltu.", 
         image: "/images/SrFakkattki.png" 
       },
     ]
@@ -569,27 +571,27 @@ export const FAQ_DATA: Record<string, FaqSectionContent> = {
   om: {
     eyebrow: "Gaaffilee Deddeebi'amanii Ka'an",
     title: "Gaaffilee fi Deebii",
-    subtitle: "Tajaajila fayyaa, sa'aatii hojii, beellama, fi qopheeffama kilinikichaa ilaalchisee deebii argadhaa.",
+    subtitle: "Tajaajila fayyaa, sa'aatii hojii, beellama, fi hojii kilinika keenya ilaalchisee deebii argadhaa.",
     items: [
       {
-        question: "Kilinika dhufuu kiyyaan dura beellama qabachuu qabaa?",
-        answer: "Tajaajila waliigalaatiif osoo hin qabatin dhufuun ni danda'ama, garuu beellamni qabachuun yeroo akka hin balleessine fi ogeessa barbaaddan argachuuf gargaara."
+        question: "Kilinika dhufuu kiyyaan dura beellama qabachuun qabaa?",
+        answer: "Tajaajila waliigalaatiif osoo hin qabatin dhufuun ni danda'ama, garuu beellama qabachuun yeroo akka hin balleessine fi ogeessa barbaaddan argachuuf isin gargaara."
       },
       {
-        question: "Tajaajila balaa tasaa sa'aa 24 guutuu ni jiraachuu?",
+        question: "Tajaajila balaa tasaa sa'aa 24 guutuu ni jiraa?",
         answer: "Eeyyee, kutaan balaa tasaa fi gargaarsa jalqabaa Dambi Doolloo keessatti sa'aa 24 hojjechaa jira."
       },
       {
-        question: "Qorannoon laaboraatorii akkamii kilinikicha keessatti kennama?",
+        question: "Qorannoo laaboraatorii akkamiitu kilinikicha keessatti kennama?",
         answer: "Qorannoo dhiigaa, keemikaalii qaamaa, fi vaayirasii garaagaraa laaboraatorii keenya keessatti saffisaan hojjetamee deebii sirrii kenna."
       },
       {
-        question: "Yeroo jalqabaaf dhufuun maaliif qabaachuu qaba?",
-        answer: "Waraqaa eenyummaa, ragaa fayyaa kanaan duraa, fi qoricha amma fudhachaa jirtan qabatanii dhufuun barbaachisaadha."
+        question: "Yeroo jalqabaaf dhufuuf maal qabaachuun qaba?",
+        answer: "ragaa fayyaa kanaan duraa, fi qoricha amma fudhachaa jirtan qabattanii osoo dhuftanii filatamaadha."
       },
       {
         question: "Rakkoo tasaa mudateef akkamitti nu quunnamuu dandeessu?",
-        answer: "Lakkoofsa bilbilaa +251 911918330 irratti ykn sarara balaa tasaa keenyaan yeroo kamiyyuu nu quunnamuu dandeessu."
+        answer: "Lakkoofsa bilbilaa +251 911918330 irratti yeroo kamiyyuu nu quunnamuu dandeessu."
       }
     ]
   }
@@ -602,7 +604,7 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     subtitle: "Read feedback from families and individuals who trust Glory Medium Clinic with their health and care.",
     list: [
       {
-        name: "Abera Demissie",
+        name: "Ruth Birhanu",
         role: "Local Resident",
         comment: "Glory Medium Clinic brought top-tier healthcare right to Dembi Dolo. The doctors are attentive, and the lab results are exceptionally fast."
       },
@@ -625,12 +627,12 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     list: [
       {
         name: "Abonesh Tesfaye",
-        role: "Jireenya Naannoo",
-        comment: "Kilinikiin Gloorii tajaajila gaarii Ogeeyyii fayyaa muuxannoo qaban Dambi Doolloo keessatti fiduu isaatiif galatoomuu qaba."
+        role: "Jiraataa Naannicha",
+        comment: "Kilinikni Glory tajaajila gaarii Ogeeyyii fayyaa muuxannoo qaban Dambi Doolloo keessatti fiduu isaatiif galatoomuu qaba."
       },
       {
         name: "Hanna Tadesse",
-        role: "Haadha Manaa",
+        role: "jiraata naannoo fi dhukkubsataa",
         comment: "tajaajila yaalaa ga'aafi gorsa gaarii argadheera."
       },
       {
