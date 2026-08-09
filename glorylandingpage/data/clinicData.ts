@@ -345,7 +345,7 @@ export const WHY_US: Record<string, WhyUsContent> = {
 export const ABOUT_CONTENT: Record<string, AboutContent> = {
   en: {
     eyebrow: "About Us",
-    title: "Providing Compassionate Healthcare Solutions in Dembi Dolo Since 2016 (EC)",
+    title: "Providing Compassionate Healthcare Services in Dembi Dolo Since 2016 (EC)",
     p1: "Glory Medium Clinic has grown from a humble community initiative into Dembi Dolo's premier medical facility. Founded by Dr. Gemechis Mokonnin, a dedicated consultant internist, our clinic combines advanced clinical practices with genuine local dedication.",
     p2: "Our mission is simple: to make dependable, high-quality healthcare accessible to every individual and family in the Kellem Wollega Zone.",
     quote: "“Healthcare is not just about treating an illness; it is about honoring the dignity of every patient.”"
@@ -353,7 +353,7 @@ export const ABOUT_CONTENT: Record<string, AboutContent> = {
   om: {
   eyebrow: "Waa'ee Keenya",
   title: "Bara 2016 (E.C) irraa eegalee Dambi Doolloo keessatti kunuunsa fayyaa qulqullina qabu kennuun beekamna",
-  p1: "Kilinikni Giddu-galeessaa Glory (Glory Medium Clinic)  Ogeessa dhukkuboota keessoo Dr. Gemechis Mekonnen kan hundaa'e yoo ta'u, tajaajila ammayyaa fi amansiisa hawaasa biraan ga'uuf hojjecha jira.",
+  p1: "Kilinikni Giddu-galeessaa Glory (Glory Medium Clinic)  Ogeessa dhukkuboota keessoo Dr. Gemechis Mekonnen kan hundaa'e yoo ta'u, tajaajila ammayyaa fi amansiisa hawaasa biraan ga'uuf hojjechaa jira.",
   p2: "Ergamni keenya salphaadha: \"Fayyaa hundaaf\" jechuudhaan naannoo Qellem Wallaggaa keessatti tajaajila fayyaa amansiisaa fi qulqullina qabu hawaasa hunda biraan gahuudha.",
   quote: "“Kunuunsa fayyaa jechuun dhukkuba qofa yaaluu miti; kabajaa dhukkubsataa hunda eeguudha.”"
 }
@@ -378,10 +378,10 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
     subtitle: "Qorannoo sirrii fi yaalii gaarii kennuuf dameewwan gurmaa'an.",
     items: [
       { icon: FaStethoscope, title: "Gorsa Waliigalaa", desc: "Sakatta'insa qaamaa fi gorsa ogeeyyii fayyaa." },
-      { icon: FaVial, title: "Laaboraatorii Qorannoo", desc: "Qorannoo dhiigaa fi vaayirasii ariifachiisaa fi amanamaa." },
+      { icon: FaVial, title: "Laaboraatorii Qorannoo", desc: "Complete blood tests and comprehensive chemistry analysis, Ultrasound, Echocardiography, Electrocardiography (ECG), and viral testing, delivered with prompt and reliable service." },
       { icon: FaHeartbeat, title: "Fayyaa fi qorannoo Haadholii ulfaa", desc: "Hordoffii ulfaa." },
       { icon: FaAmbulance, title: "Tajaajila Balaa Tasaa", desc: "Gargaarsa jalqabaa dhibee ariifachiisaa akka tasaa mudataniif." },
-      { icon: FaUserMd, title: "Yaalii Xixiqqaa & Madaa", desc: "Kunuunsa madaa, hodhaa, fi yaalii alaa." }
+      { icon: FaUserMd, title: "Yaalii baqaqsanii hodhuu Xixiqqaa", desc: "Kunuunsa madaa, hodhaa, fi yaalii alaa." }
     ]
   }
 };
@@ -394,7 +394,7 @@ export const DEPARTMENTS_DATA: Record<string, DepartmentsContent> = {
     tabs: [
       { name: "General Medicine", title: "General Clinical & Outpatient Department", desc: "Our primary point of care where experienced Specialists evaluate symptoms, diagnose conditions, and formulate tailored treatment strategies for acute and chronic illnesses." },
       { name: "Laboratory", title: "Advanced Diagnostic Laboratory", desc: "Equipped with dependable technology to execute hematology, parasitology, clinical chemistry, and serology tests rapidly and with absolute precision." },
-      // { name: "Pharmacy", title: "Certified Clinical Pharmacy", desc: "A secure dispensary managed by qualified pharmacists ensuring proper drug dispensing, patient dosage education, and quality pharmaceutical storage." },
+      
       {
   name: "Maternal Care",
   title: "Maternal & Antenatal Care",
@@ -409,7 +409,6 @@ export const DEPARTMENTS_DATA: Record<string, DepartmentsContent> = {
     tabs: [
       { name: "tajaajila Waliigalaa", title: "Kutaa Tajaajila Waliigalaa", desc: "Bakka ogeeyyiin fayyaa mallattoo dhukkubaa sakatta'anii fi yaalii barbaachisaa kennan." },
       { name: "Laaboraatorii", title: "Laaboraatorii Qorannoo Ammayyaa", desc: "Qorannoo dhiigaa, vaayirasii fi keemikaalii sirriitti raawwachuuf kan qophaa'e." },
-      // { name: "Farmaasii", title: "Farmaasii Mirkaneeffame", desc: "Qoricha qulqullina qabu qopheessuu fi qajeelfama fayyadamaa kennuu." },
       { name: "Kunuunsa Haadholii", title: "Kutaa Fayyaa Haadholii", desc: "Hordoffii ulfaa, fi gorsa fayyaa haadholii." }
     ]
   }
@@ -537,7 +536,6 @@ export const CONTACT_SECTION: Record<string, ContactSectionContent> = {
   }
 };
 
-// --- UPDATED INTERFACES FOR SENIOR COMPLETENESS ---
 
 export const FAQ_DATA: Record<string, FaqSectionContent> = {
   en: {
@@ -604,12 +602,12 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     subtitle: "Read feedback from families and individuals who trust Glory Medium Clinic with their health and care.",
     list: [
       {
-        name: "Ruth Birhanu",
+        name: "Gemechu Tesfaye",
         role: "Local Resident",
         comment: "Glory Medium Clinic brought top-tier healthcare right to Dembi Dolo. The doctors are attentive, and the lab results are exceptionally fast."
       },
       {
-        name: "Hanna Tadesse",
+        name: "galaanee Hundeessaa",
         role: "Mother & Patient",
         comment: "The maternal care team gave me wonderful guidance throughout my pregnancy. I am deeply grateful for their professionalism and warmth."
       },
@@ -626,12 +624,12 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     subtitle: "Waa'ee tajaajila keenyaa hawaasa irraa yaada kennaman dubbisaa.",
     list: [
       {
-        name: "Abonesh Tesfaye",
+        name: "Gemechu Tesfaye",
         role: "Jiraataa Naannicha",
         comment: "Kilinikni Glory tajaajila gaarii Ogeeyyii fayyaa muuxannoo qaban Dambi Doolloo keessatti fiduu isaatiif galatoomuu qaba."
       },
       {
-        name: "Hanna Tadesse",
+        name: "galaanee Hundeessaa",
         role: "jiraata naannoo fi dhukkubsataa",
         comment: "tajaajila yaalaa ga'aafi gorsa gaarii argadheera."
       },
