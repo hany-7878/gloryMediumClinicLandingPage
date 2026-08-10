@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Compassionate, reliable, and patient-centered healthcare services in Dembi Dolo, Oromia, Ethiopia.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/DRGame.jpg",
         width: 1200,
         height: 630,
         alt: "Glory Medium Clinic in Dembi Dolo",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title: "Glory Medium Clinic | Healthcare in Dembi Dolo",
     description:
       "Compassionate, reliable, and patient-centered healthcare services in Dembi Dolo, Oromia, Ethiopia.",
-    images: ["/og-image.jpg"],
+    images: ["/DRGame.jpg"],
   },
 
   icons: {
