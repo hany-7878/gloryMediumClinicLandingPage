@@ -1,9 +1,25 @@
-import { 
-  FaFacebook, FaInstagram, FaTwitter, FaLinkedin, 
-  FaClock, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, 
-  FaStethoscope, FaPills, FaHeartbeat, FaVial, FaAmbulance, FaUserMd 
-} from "react-icons/fa"; 
+
+import {
+  FaFacebook,
+  FaYoutube,
+  FaTelegramPlane,
+  FaClock,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaStethoscope,
+  FaPills,
+  FaHeartbeat,
+  FaVial,
+  FaAmbulance,
+  FaUserMd,
+} from "react-icons/fa";
+
+import { FaTiktok } from "react-icons/fa6";
+
 import type { ComponentType, SVGProps } from "react";
+
+
 
 export type IconType = ComponentType<SVGProps<SVGSVGElement> & { size?: string | number; color?: string }>;
 
@@ -32,12 +48,7 @@ export interface ClinicConfig {
   logoUrl: string;
   location: string;
   founder: FounderConfig;
-  socials: {
-    facebook: string;
-    instagram: string;
-    twitter: string;
-    linkedin: string;
-  };
+    socials: { facebook: string; YouTube: string; telegram: string; Tiktok: string; };
 }
 
 export interface TopBarContent {
@@ -226,60 +237,99 @@ export const CLINIC: ClinicConfig = {
     },
     imageUrl: "/images/DRGame.jpg"
   },
-  socials: {
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com",
-    twitter: "https://twitter.com",
-    linkedin: "https://linkedin.com"
-  }
+
+socials: {
+  facebook:
+    "https://web.facebook.com/profile.php?id=100087130867673",
+
+  YouTube:
+    "https://www.youtube.com/@gemeyana7",
+
+  telegram:
+    "https://t.me/gemeyana7",
+
+  Tiktok:
+    "https://www.tiktok.com/@7gma_glorymc?_r=1",
+},
+
+
 };
 
 export const SOCIAL_LINKS: SocialLinkItem[] = [
-  { icon: FaFacebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  {
+    icon: FaFacebook,
+    href:
+      "https://web.facebook.com/profile.php?id=100087130867673",
+    label: "Facebook",
+  },
+  {
+    icon: FaYoutube,
+    href: "https://www.youtube.com/@gemeyana7",
+    label: "YouTube",
+  },
+  {
+    icon: FaTelegramPlane,
+    href: "https://t.me/gemeyana7",
+    label: "Telegram",
+  },
+  {
+    icon: FaTiktok,
+    href: "https://www.tiktok.com/@7gma_glorymc?_r=1",
+    label: "TikTok",
+  },
 ];
+
 
 export const CTA_CONTENT: Record<string, CtaContent> = {
   en: {
     eyebrow: "Ready for Care?",
     title: "Your Health is Our Top Priority",
-    subtitle: "Visit our clinic in Dembi Dolo or get in touch with our emergency team right away.",
-    body: "We provide comprehensive medical support round the clock with professional care.",
+    subtitle:
+      "Visit our clinic in Dembi Dolo or get in touch with our emergency team right away.",
+    body:
+      "We provide comprehensive medical support with professional care.",
     buttonText: "Book an Appointment",
     emergencyText: "24/7 Emergency Support Available",
     callLabel: "Call Support",
     whatsappLabel: "Chat on WhatsApp",
     hoursLabel: "Working Hours",
-    hoursWeekday: "Sun - Sun: 8:30 AM - 7:00 PM",
-    hoursWeekend: "Sunday: 6:00 AM - 8:00 PM"
+    hoursWeekday: "Every Day: 8:30 AM - 7:00 PM",
+    hoursWeekend: "Emergency: 24/7",
   },
+
   om: {
     eyebrow: "yaalii Barbaaddaniittu?",
     title: "Fayyaan Keessan Dursa Keenya",
-    subtitle: "Kilinika keenya Dambi Doolloo jiru daawwadhaa ykn garee balaa tasaa keenya quunnamaa.",
-    body: "Tajaajila fayyaa guutuu ogeeyyii olaanaatiin isinii kennina.",
+    subtitle:
+      "Kilinika keenya Dambi Doolloo jiru daawwadhaa ykn garee balaa tasaa keenya quunnamaa.",
+    body:
+      "Tajaajila fayyaa guutuu ogeeyyii olaanaatiin isinii kennina.",
     buttonText: "Beellama Qabachuuf",
     emergencyText: "Tajaajila Balaa Tasaa Sa'aa 24",
     callLabel: "Bilbilaan Quunnamuuf",
     whatsappLabel: "WhatsApp'n quunnamuuf",
     hoursLabel: "Sa'aatii Hojii",
-    hoursWeekday: "sanbata - Sanbata: Ganama 2:30 - Halkan 7:00",
-    hoursWeekend: "Sanbata: ganama 2:30 - Halkan 1:00"
-  }
+    hoursWeekday: "Guyyaa Hunda: Ganama 2:30 - Halkan 1:00",
+    hoursWeekend: "Balaa Tasaa: Sa'aatii 24",
+  },
 };
+
+
+
 
 export const TOP_BAR: Record<string, TopBarContent> = {
   en: {
-    hours: "sunday - sunday: 8:30 AM - 7:00 PM",
-    emergency: "Emergency 24/7 Available"
+    hours: "Every Day: 8:30 AM - 7:00 PM",
+    emergency: "Emergency 24/7 Available",
   },
+
   om: {
-    hours: "sanbata - Sanbata: Ganama Sa'aa 2:30 - Halkan Sa'aa 1:00",
-    emergency: "Tajaajila Balaa Tasaa Sa'aa 24 ni taasisna"
-  }
+    hours: "Guyyaa Hunda: Ganama 2:30 - Halkan 1:00",
+    emergency: "Tajaajila Balaa Tasaa Sa'aatii 24",
+  },
 };
+
+
 
 export const NAV_LINKS: Record<string, NavLink[]> = {
   en: [
@@ -366,7 +416,7 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
     subtitle: "Comprehensive health departments structured to deliver accurate diagnoses and soothing treatments.",
     items: [
       { icon: FaStethoscope, title: "General Consultation", desc: "Routine health checkups, physical assessments, and professional specialist." },
-      { icon: FaVial, title: "Laboratory Diagnostics", desc: "Fast and reliable blood panels, biochemistry tests, and infectious disease screenings." },
+      { icon: FaVial, title: "Laboratory Diagnostics", desc: "Complete blood tests and comprehensive chemistry analysis, Ultrasound, Echocardiography, Electrocardiography (ECG), and viral testing, delivered with fast and reliable service." },
       { icon: FaHeartbeat, title: "Maternal Health (Antenatal Care)", desc: "Antenatal care and pregnancy health tracking up until birth." },
       { icon: FaAmbulance, title: "Emergency Stabilization", desc: "Immediate first-response triage and acute stabilization for urgent medical incidents." },
       { icon: FaUserMd, title: "Minor Surgery & Wound Care", desc: "Outpatient sterile surgical interventions, suture care, and trauma management." }
@@ -378,7 +428,7 @@ export const SERVICES_SECTION: Record<string, ServicesSectionContent> = {
     subtitle: "Qorannoo sirrii fi yaalii gaarii kennuuf dameewwan gurmaa'an.",
     items: [
       { icon: FaStethoscope, title: "Gorsa Waliigalaa", desc: "Sakatta'insa qaamaa fi gorsa ogeeyyii fayyaa." },
-      { icon: FaVial, title: "Laaboraatorii Qorannoo", desc: "Complete blood tests and comprehensive chemistry analysis, Ultrasound, Echocardiography, Electrocardiography (ECG), and viral testing, delivered with prompt and reliable service." },
+      { icon: FaVial, title: "Laaboraatorii Qorannoo", desc: "Qorannoo dhiigaa guutuu fi qorannoo keemistirii guutuu,Altiraasaawundii, Eekookaardiiyoogiraafii, Elektrookaardiiyoogiraafii, qorannoo vaayirasii, tajaajila arifachiisaaf fi amanamsisaa waliin." },
       { icon: FaHeartbeat, title: "Fayyaa fi qorannoo Haadholii ulfaa", desc: "Hordoffii ulfaa." },
       { icon: FaAmbulance, title: "Tajaajila Balaa Tasaa", desc: "Gargaarsa jalqabaa dhibee ariifachiisaa akka tasaa mudataniif." },
       { icon: FaUserMd, title: "Yaalii baqaqsanii hodhuu Xixiqqaa", desc: "Kunuunsa madaa, hodhaa, fi yaalii alaa." }
@@ -394,7 +444,6 @@ export const DEPARTMENTS_DATA: Record<string, DepartmentsContent> = {
     tabs: [
       { name: "General Medicine", title: "General Clinical & Outpatient Department", desc: "Our primary point of care where experienced Specialists evaluate symptoms, diagnose conditions, and formulate tailored treatment strategies for acute and chronic illnesses." },
       { name: "Laboratory", title: "Advanced Diagnostic Laboratory", desc: "Equipped with dependable technology to execute hematology, parasitology, clinical chemistry, and serology tests rapidly and with absolute precision." },
-      
       {
   name: "Maternal Care",
   title: "Maternal & Antenatal Care",
@@ -536,7 +585,6 @@ export const CONTACT_SECTION: Record<string, ContactSectionContent> = {
   }
 };
 
-
 export const FAQ_DATA: Record<string, FaqSectionContent> = {
   en: {
     eyebrow: "FAQ",
@@ -568,7 +616,7 @@ export const FAQ_DATA: Record<string, FaqSectionContent> = {
   },
   om: {
     eyebrow: "Gaaffilee Deddeebi'amanii Ka'an",
-    title: "Gaaffilee fi Deebii",
+    title: "Gaaffii fi Deebii",
     subtitle: "Tajaajila fayyaa, sa'aatii hojii, beellama, fi hojii kilinika keenya ilaalchisee deebii argadhaa.",
     items: [
       {
@@ -602,12 +650,12 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     subtitle: "Read feedback from families and individuals who trust Glory Medium Clinic with their health and care.",
     list: [
       {
-        name: "Gemechu Tesfaye",
+        name: "Tolaa Bulchaa",
         role: "Local Resident",
         comment: "Glory Medium Clinic brought top-tier healthcare right to Dembi Dolo. The doctors are attentive, and the lab results are exceptionally fast."
       },
       {
-        name: "galaanee Hundeessaa",
+        name: "Hawi Gutama",
         role: "Mother & Patient",
         comment: "The maternal care team gave me wonderful guidance throughout my pregnancy. I am deeply grateful for their professionalism and warmth."
       },
@@ -624,12 +672,12 @@ export const TESTIMONIALS_DATA: Record<string, TestimonialsSectionContent> = {
     subtitle: "Waa'ee tajaajila keenyaa hawaasa irraa yaada kennaman dubbisaa.",
     list: [
       {
-        name: "Gemechu Tesfaye",
+        name: "Tolaa Bulchaa",
         role: "Jiraataa Naannicha",
         comment: "Kilinikni Glory tajaajila gaarii Ogeeyyii fayyaa muuxannoo qaban Dambi Doolloo keessatti fiduu isaatiif galatoomuu qaba."
       },
       {
-        name: "galaanee Hundeessaa",
+        name: "Hawwii Guutamaa",
         role: "jiraata naannoo fi dhukkubsataa",
         comment: "tajaajila yaalaa ga'aafi gorsa gaarii argadheera."
       },

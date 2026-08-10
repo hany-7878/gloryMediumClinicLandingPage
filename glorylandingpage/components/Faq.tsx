@@ -12,7 +12,7 @@ interface FaqProps {
 
 export default function Faq({ language }: FaqProps) {
   const content = FAQ_DATA[language] || FAQ_DATA.en;
-  const [openIndex, setOpenIndex] = useState<number | null>(0); // First item open by default
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
