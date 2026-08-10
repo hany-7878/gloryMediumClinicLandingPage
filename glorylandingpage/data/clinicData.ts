@@ -258,8 +258,7 @@ socials: {
 export const SOCIAL_LINKS: SocialLinkItem[] = [
   {
     icon: FaFacebook,
-    href:
-      "https://web.facebook.com/profile.php?id=100087130867673",
+    href: "https://web.facebook.com/profile.php?id=100087130867673",
     label: "Facebook",
   },
   {
@@ -278,7 +277,6 @@ export const SOCIAL_LINKS: SocialLinkItem[] = [
     label: "TikTok",
   },
 ];
-
 
 export const CTA_CONTENT: Record<string, CtaContent> = {
   en: {
