@@ -15,6 +15,7 @@ import Testimonials from "@/components/Testimonials"; // Added
 import Faq from "@/components/Faq";                     // Added
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AppointmentBooking from "@/components/AppointmentBooking";
 
 export default function HomePage() {
   const [language, setLanguage] = useState<'en' | 'om'>("en");
@@ -41,6 +42,7 @@ export default function HomePage() {
           <Testimonials language={language} /> 
           <Faq language={language} />             
           <Contact language={language} />
+          <AppointmentBooking language={language} />
         </motion.div>
       </AnimatePresence>
 

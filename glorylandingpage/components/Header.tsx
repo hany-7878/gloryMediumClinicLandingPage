@@ -51,7 +51,7 @@ export default function Header({ language }: HeaderProps) {
         {/* Action Button */}
         <div className="hidden lg:flex items-center gap-4">
           <a
-            href="#contact"
+  href="#appointment"
             className="bg-teal-700 hover:bg-teal-800 text-white px-5 py-2.5 rounded-full text-sm font-bold shadow-md shadow-teal-700/20 transition-all active:scale-95"
           >
             {language === 'en' ? "Make an Appointment" : "Beellama Qabachuuf"}
