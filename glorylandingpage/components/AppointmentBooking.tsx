@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  FormEvent,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import {
   FaCalendarAlt,
   FaCheckCircle,
@@ -50,8 +45,7 @@ interface AppointmentResponse {
 }
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_HMS_API_URL ||
-  "http://localhost:8080/api/v1";
+  process.env.NEXT_PUBLIC_HMS_API_URL || "http://localhost:8080/api/v1";
 
 const INITIAL_FORM: AppointmentForm = {
   first_name: "",
@@ -103,8 +97,7 @@ const TEXT = {
     time: "Preferred time",
 
     reason: "Reason for visit",
-    reasonPlaceholder:
-      "Briefly describe the reason for your appointment",
+    reasonPlaceholder: "Briefly describe the reason for your appointment",
 
     optional: "Optional",
     required: "Required",
@@ -112,63 +105,33 @@ const TEXT = {
     submit: "Request Appointment",
     submitting: "Submitting request...",
 
-    loadingDepartments:
-      "Loading available departments...",
-
-    noDepartments:
-      "Online appointment booking is currently unavailable.",
-
+    loadingDepartments: "Loading available departments...",
+    noDepartments: "Online appointment booking is currently unavailable.",
     departmentError:
       "We couldn't load the available departments. Please try again.",
-
     retryDepartments: "Try again",
 
-    generalError:
-      "Something went wrong. Please try again.",
+    generalError: "Something went wrong. Please try again.",
 
-    successTitle:
-      "Appointment Request Submitted",
-
+    successTitle: "Appointment Request Submitted",
     successMessage:
       "Your appointment request has been received. Our reception team will review it and contact you to confirm the appointment.",
 
     reference: "Appointment reference",
     departmentLabel: "Department",
     requestedDate: "Requested date",
+    requestAnother: "Request another appointment",
 
-    requestAnother:
-      "Request another appointment",
-
-    futureDate:
-      "Please select a future date and time.",
-
-    ageRequired:
-      "Please provide your age.",
-
-    invalidAge:
-      "Age must be an integer between 0 and 150.",
-
-    addressTooLong:
-      "Address must not exceed 500 characters.",
-
-    reasonTooLong:
-      "Reason for visit must not exceed 1000 characters.",
-
-    invalidPhone:
-      "Please enter a valid phone number.",
-
-    invalidName:
-      "Names must contain at least 2 characters.",
-
-    nameTooLong:
-      "Names must not exceed 100 characters.",
-
-    invalidDepartment:
-      "Please select a valid department.",
-
-    appointmentRequired:
-      "Please select a preferred date and time.",
-
+    futureDate: "Please select a future date and time.",
+    ageRequired: "Please provide your age.",
+    invalidAge: "Age must be an integer between 0 and 150.",
+    addressTooLong: "Address must not exceed 500 characters.",
+    reasonTooLong: "Reason for visit must not exceed 1000 characters.",
+    invalidPhone: "Please enter a valid phone number.",
+    invalidName: "Names must contain at least 2 characters.",
+    nameTooLong: "Names must not exceed 100 characters.",
+    invalidDepartment: "Please select a valid department.",
+    appointmentRequired: "Please select a preferred date and time.",
     bookingUnavailable:
       "Online appointment booking is currently unavailable for this department.",
   },
@@ -179,27 +142,20 @@ const TEXT = {
     subtitle:
       "Glory Medium Clinic keessatti beellama gaafadhu. Gareen keenya gaaffii kee ilaalee si qunnamuun beellama kee ni mirkaneessa.",
 
-    patientInformation:
-      "Odeeffannoo Dhukkubsataa",
-
-    appointmentInformation:
-      "Odeeffannoo Beellamaa",
+    patientInformation: "Odeeffannoo Dhukkubsataa",
+    appointmentInformation: "Odeeffannoo Beellamaa",
 
     firstName: "Maqaa",
-    firstNamePlaceholder:
-      "Maqaa kee galchi",
+    firstNamePlaceholder: "Maqaa kee galchi",
 
-    lastName: "Maqaa Abbaa ",
-    lastNamePlaceholder:
-      " maqaa Abbaa kee galchi",
+    lastName: "Maqaa Abbaa",
+    lastNamePlaceholder: "Maqaa Abbaa kee galchi",
 
     phone: "Lakkoofsa bilbilaa",
-    phonePlaceholder:
-      "Fakkeenya: 09XXXXXXXX",
+    phonePlaceholder: "Fakkeenya: 09XXXXXXXX",
 
     age: "Umurii",
-    agePlaceholder:
-      "Umurii kee galchi",
+    agePlaceholder: "Umurii kee galchi",
 
     gender: "Saala",
     selectGender: "Saala filadhu",
@@ -208,181 +164,105 @@ const TEXT = {
     other: "Kan biraa",
 
     address: "Teessoo",
-    addressPlaceholder:
-      "Magaalaa / naannoo",
+    addressPlaceholder: "Magaalaa / naannoo",
 
     department: "Kutaa",
-    selectDepartment:
-      "Kutaa filadhu",
+    selectDepartment: "Kutaa filadhu",
 
     date: "Guyyaa",
     time: "Yeroo",
 
-    reason: "Sababa ",
-    reasonPlaceholder:
-      "Sababa beellamaa gabaabinaan ibsi",
+    reason: "Sababa daawwannaa",
+    reasonPlaceholder: "Sababa beellamaa gabaabinaan ibsi",
 
     optional: "Filannoo",
     required: "Dirqama",
 
-    submit:
-      "Gaaffii Beellamaa",
+    submit: "Gaaffii Beellamaa",
+    submitting: "Gaaffii ergaa jira...",
 
-    submitting:
-      "Gaaffii ergaa jira...",
-
-    loadingDepartments:
-      "Kutaa beellamaaf banaa jiru fe'aa jira...",
-
+    loadingDepartments: "Kutaa beellamaaf banaa jiru fe'aa jira...",
     noDepartments:
       "Yeroo ammaa beellama interneetii gaafachuun hin danda'amu.",
-
     departmentError:
       "Kutaa beellamaaf banaa jiru fe'uu hin dandeenye. Mee irra deebi'uun yaalii.",
+    retryDepartments: "Irra deebi'i",
 
-    retryDepartments:
-      "Irra deebi'i",
+    generalError: "Rakkoon uumameera. Mee irra deebi'i.",
 
-    generalError:
-      "Rakkoon uumameera. Mee irra deebi'i.",
-
-    successTitle:
-      "Gaaffiin Beellamaa Ergameera",
-
+    successTitle: "Gaaffiin Beellamaa Ergameera",
     successMessage:
       "Gaaffiin beellamaa kee nu gaheera. Gareen keenya ilaalee si qunnamuun beellama kee ni mirkaneessa.",
 
-    reference:
-      "Lakkoofsa beellamaa",
-
+    reference: "Lakkoofsa beellamaa",
     departmentLabel: "Kutaa",
+    requestedDate: "Guyyaa gaafatame",
+    requestAnother: "Beellama biraa gaafadhu",
 
-    requestedDate:
-      "Guyyaa gaafatame",
-
-    requestAnother:
-      "Beellama biraa gaafadhu",
-
-    futureDate:
-      "Mee guyyaa fi yeroo fuulduraa filadhu.",
-
-    ageRequired:
-      "umurii kee galchi.",
-
-    invalidAge:
-      "Umuriin 0 hanga 150 gidduu ta'uu qaba.",
-
-    addressTooLong:
-      "Teessoon qubee 500 caaluu hin qabu.",
-
-    reasonTooLong:
-      "Sababni daawwannaa qubee 1000 caaluu hin qabu.",
-
-    invalidPhone:
-      "Mee lakkoofsa bilbilaa sirrii galchi.",
-
-    invalidName:
-      "Maqaan yoo xiqqaate qubee 2 qabaachuu qaba.",
-
-    nameTooLong:
-      "Maqaan qubee 100 caaluu hin qabu.",
-
-    invalidDepartment:
-      "Mee kutaa sirrii filadhu.",
-
-    appointmentRequired:
-      "Mee guyyaa fi yeroo filadhu.",
-
+    futureDate: "Mee guyyaa fi yeroo fuulduraa filadhu.",
+    ageRequired: "Mee umurii kee galchi.",
+    invalidAge: "Umuriin 0 hanga 150 gidduu ta'uu qaba.",
+    addressTooLong: "Teessoon qubee 500 caaluu hin qabu.",
+    reasonTooLong: "Sababni daawwannaa qubee 1000 caaluu hin qabu.",
+    invalidPhone: "Mee lakkoofsa bilbilaa sirrii galchi.",
+    invalidName: "Maqaan yoo xiqqaate qubee 2 qabaachuu qaba.",
+    nameTooLong: "Maqaan qubee 100 caaluu hin qabu.",
+    invalidDepartment: "Mee kutaa sirrii filadhu.",
+    appointmentRequired: "Mee guyyaa fi yeroo filadhu.",
     bookingUnavailable:
       "Kutaan kun yeroo ammaa beellama interneetii hin simatu.",
   },
 } as const;
 
+/*
+ * Returns the current local time in the format expected by
+ * <input type="datetime-local" min="...">  (YYYY-MM-DDTHH:mm)
+ */
 function getMinimumDateTime(): string {
   const now = new Date();
 
   const year = now.getFullYear();
-
-  const month = String(
-    now.getMonth() + 1,
-  ).padStart(2, "0");
-
-  const day = String(
-    now.getDate(),
-  ).padStart(2, "0");
-
-  const hours = String(
-    now.getHours(),
-  ).padStart(2, "0");
-
-  const minutes = String(
-    now.getMinutes(),
-  ).padStart(2, "0");
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
 
   return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 
-function formatAppointmentDate(
-  value: string,
-  language: "en" | "om",
-): string {
+function formatAppointmentDate(value: string, language: "en" | "om"): string {
   const date = new Date(value);
 
   if (Number.isNaN(date.getTime())) {
     return value;
   }
 
-  return new Intl.DateTimeFormat(
-    language === "om"
-      ? "om-ET"
-      : "en-ET",
-    {
-      dateStyle: "medium",
-      timeStyle: "short",
-    },
-  ).format(date);
+  return new Intl.DateTimeFormat(language === "om" ? "om-ET" : "en-ET", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(date);
 }
 
-function isValidPhoneNumber(
-  value: string,
-): boolean {
-  const normalized = value
-    .trim()
-    .replace(/[()\-\s]/g, "");
+function isValidPhoneNumber(value: string): boolean {
+  const normalized = value.trim().replace(/[()\-\s]/g, "");
 
-  return /^\+?\d{7,15}$/.test(
-    normalized,
-  );
+  return /^\+?\d{7,15}$/.test(normalized);
 }
 
 async function parseApiResponse(
   response: Response,
 ): Promise<Record<string, unknown>> {
-  const contentType =
-    response.headers.get(
-      "content-type",
-    ) || "";
+  const contentType = response.headers.get("content-type") || "";
 
-  if (
-    !contentType
-      .toLowerCase()
-      .includes("application/json")
-  ) {
+  if (!contentType.toLowerCase().includes("application/json")) {
     return {};
   }
 
   try {
     const data = await response.json();
 
-    if (
-      data &&
-      typeof data === "object" &&
-      !Array.isArray(data)
-    ) {
-      return data as Record<
-        string,
-        unknown
-      >;
+    if (data && typeof data === "object" && !Array.isArray(data)) {
+      return data as Record<string, unknown>;
     }
 
     return {};
@@ -396,186 +276,102 @@ export default function AppointmentBooking({
 }: AppointmentBookingProps) {
   const t = TEXT[language];
 
-  const [form, setForm] =
-    useState<AppointmentForm>(
-      INITIAL_FORM,
-    );
-
-  const [departments, setDepartments] =
-    useState<Department[]>([]);
-
-  const [
-    loadingDepartments,
-    setLoadingDepartments,
-  ] = useState(true);
-
-  const [
-    departmentError,
-    setDepartmentError,
-  ] = useState("");
-
-  const [submitting, setSubmitting] =
-    useState(false);
-
-  const [error, setError] =
-    useState("");
-
-  const [success, setSuccess] =
-    useState<AppointmentResponse | null>(
-      null,
-    );
-
-  const [
-    minimumDateTime,
-    setMinimumDateTime,
-  ] = useState(
-    getMinimumDateTime(),
-  );
+  const [form, setForm] = useState<AppointmentForm>(INITIAL_FORM);
+  const [departments, setDepartments] = useState<Department[]>([]);
+  const [loadingDepartments, setLoadingDepartments] = useState(true);
+  const [departmentError, setDepartmentError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState<AppointmentResponse | null>(null);
 
   /*
-   * Keep the minimum selectable appointment
-   * time current while the page remains open.
+   * Minimum selectable date/time.
+   *
+   * Starts empty so the server and browser render the same HTML
+   * (no hydration mismatch), then is set once after mount.
+   * It is NOT refreshed on an interval, because changing `min`
+   * while the picker is open can reset the user's selection.
+   * validateForm() checks the time again at submit.
    */
+  const [minimumDateTime, setMinimumDateTime] = useState("");
+
   useEffect(() => {
-    const updateMinimumDateTime =
-      () => {
-        setMinimumDateTime(
-          getMinimumDateTime(),
-        );
-      };
-
-    updateMinimumDateTime();
-
-    const interval =
-      window.setInterval(
-        updateMinimumDateTime,
-        60_000,
-      );
-
-    return () => {
-      window.clearInterval(
-        interval,
-      );
-    };
+    setMinimumDateTime(getMinimumDateTime());
   }, []);
 
   /*
-   * Load departments that are explicitly
-   * enabled for public website booking.
+   * Load departments enabled for public website booking.
    */
-  const loadDepartments =
-    useCallback(
-      async (
-        signal?: AbortSignal,
-      ) => {
-        setLoadingDepartments(true);
-        setDepartmentError("");
+  const loadDepartments = useCallback(
+    async (signal?: AbortSignal) => {
+      setLoadingDepartments(true);
+      setDepartmentError("");
 
-        try {
-          const response =
-            await fetch(
-              `${API_BASE_URL}/public/departments`,
-              {
-                method: "GET",
-                headers: {
-                  Accept:
-                    "application/json",
-                },
-                cache: "no-store",
-                signal,
-              },
-            );
+      try {
+        const response = await fetch(`${API_BASE_URL}/public/departments`, {
+          method: "GET",
+          headers: { Accept: "application/json" },
+          cache: "no-store",
+          signal,
+        });
 
-          const data =
-            await parseApiResponse(
-              response,
-            );
+        const data = await parseApiResponse(response);
 
-          if (!response.ok) {
-            throw new Error(
-              typeof data.error ===
-                "string"
-                ? data.error
+        if (!response.ok) {
+          throw new Error(
+            typeof data.error === "string"
+              ? data.error
+              : typeof data.message === "string"
+                ? data.message
                 : t.departmentError,
-            );
-          }
-
-          const rawDepartments =
-            Array.isArray(
-              data.departments,
-            )
-              ? data.departments
-              : [];
-
-          const publicDepartments =
-            rawDepartments.filter(
-              (
-                department,
-              ): department is Department => {
-                if (
-                  !department ||
-                  typeof department !==
-                    "object"
-                ) {
-                  return false;
-                }
-
-                const item =
-                  department as Partial<Department>;
-
-                return (
-                  typeof item.department_id ===
-                    "number" &&
-                  Number.isInteger(
-                    item.department_id,
-                  ) &&
-                  item.department_id > 0 &&
-                  typeof item.department_name ===
-                    "string" &&
-                  item.department_name.trim()
-                    .length > 0
-                );
-              },
-            );
-
-          setDepartments(
-            publicDepartments,
           );
-        } catch (err) {
-          if (
-            err instanceof DOMException &&
-            err.name === "AbortError"
-          ) {
-            return;
-          }
-
-          console.error(
-            "Failed to load public departments:",
-            err,
-          );
-
-          setDepartments([]);
-          setDepartmentError(
-            t.departmentError,
-          );
-        } finally {
-          if (!signal?.aborted) {
-            setLoadingDepartments(
-              false,
-            );
-          }
         }
-      },
-      [t.departmentError],
-    );
+
+        const rawDepartments = Array.isArray(data.departments)
+          ? data.departments
+          : [];
+
+        const publicDepartments = rawDepartments.filter(
+          (department): department is Department => {
+            if (!department || typeof department !== "object") {
+              return false;
+            }
+
+            const item = department as Partial<Department>;
+
+            return (
+              typeof item.department_id === "number" &&
+              Number.isInteger(item.department_id) &&
+              item.department_id > 0 &&
+              typeof item.department_name === "string" &&
+              item.department_name.trim().length > 0
+            );
+          },
+        );
+
+        setDepartments(publicDepartments);
+      } catch (err) {
+        if (err instanceof DOMException && err.name === "AbortError") {
+          return;
+        }
+
+        console.error("Failed to load public departments:", err);
+
+        setDepartments([]);
+        setDepartmentError(t.departmentError);
+      } finally {
+        if (!signal?.aborted) {
+          setLoadingDepartments(false);
+        }
+      }
+    },
+    [t.departmentError],
+  );
 
   useEffect(() => {
-    const controller =
-      new AbortController();
+    const controller = new AbortController();
 
-    void loadDepartments(
-      controller.signal,
-    );
+    void loadDepartments(controller.signal);
 
     return () => {
       controller.abort();
@@ -585,10 +381,7 @@ export default function AppointmentBooking({
   /*
    * Update one form field.
    */
-  function updateField(
-    field: keyof AppointmentForm,
-    value: string,
-  ) {
+  function updateField(field: keyof AppointmentForm, value: string) {
     setForm((current) => ({
       ...current,
       [field]: value,
@@ -601,23 +394,12 @@ export default function AppointmentBooking({
    * Client-side validation.
    */
   function validateForm(): string | null {
-    const firstName =
-      form.first_name.trim();
-
-    const lastName =
-      form.last_name.trim();
-
-    const phone =
-      form.phone_number.trim();
-
-    const ageText =
-      form.age.trim();
-
-    const address =
-      form.address.trim();
-
-    const reason =
-      form.reason.trim();
+    const firstName = form.first_name.trim();
+    const lastName = form.last_name.trim();
+    const phone = form.phone_number.trim();
+    const ageText = form.age.trim();
+    const address = form.address.trim();
+    const reason = form.reason.trim();
 
     if (!firstName) {
       return `${t.firstName} ${t.required.toLowerCase()}.`;
@@ -657,11 +439,7 @@ export default function AppointmentBooking({
 
     const age = Number(ageText);
 
-    if (
-      !Number.isInteger(age) ||
-      age < 0 ||
-      age > 150
-    ) {
+    if (!Number.isInteger(age) || age < 0 || age > 150) {
       return t.invalidAge;
     }
 
@@ -669,19 +447,13 @@ export default function AppointmentBooking({
       return `${t.department} ${t.required.toLowerCase()}.`;
     }
 
-    const departmentId = Number(
-      form.department_id,
-    );
+    const departmentId = Number(form.department_id);
 
     if (
-      !Number.isInteger(
-        departmentId,
-      ) ||
+      !Number.isInteger(departmentId) ||
       departmentId <= 0 ||
       !departments.some(
-        (department) =>
-          department.department_id ===
-          departmentId,
+        (department) => department.department_id === departmentId,
       )
     ) {
       return t.invalidDepartment;
@@ -691,17 +463,11 @@ export default function AppointmentBooking({
       return t.appointmentRequired;
     }
 
-    const selectedDate =
-      new Date(
-        form.appointment_date,
-      );
+    const selectedDate = new Date(form.appointment_date);
 
     if (
-      Number.isNaN(
-        selectedDate.getTime(),
-      ) ||
-      selectedDate.getTime() <=
-        Date.now()
+      Number.isNaN(selectedDate.getTime()) ||
+      selectedDate.getTime() <= Date.now()
     ) {
       return t.futureDate;
     }
@@ -720,9 +486,7 @@ export default function AppointmentBooking({
   /*
    * Submit public appointment request.
    */
-  async function handleSubmit(
-    event: FormEvent<HTMLFormElement>,
-  ) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (submitting) {
@@ -731,18 +495,13 @@ export default function AppointmentBooking({
 
     setError("");
 
-    const validationError =
-      validateForm();
+    const validationError = validateForm();
 
     if (validationError) {
       setError(validationError);
 
       window.setTimeout(() => {
-        document
-          .getElementById(
-            "appointment-form-error",
-          )
-          ?.focus();
+        document.getElementById("appointment-form-error")?.focus();
       }, 0);
 
       return;
@@ -752,119 +511,67 @@ export default function AppointmentBooking({
 
     try {
       const payload = {
-        first_name:
-          form.first_name.trim(),
-
-        last_name:
-          form.last_name.trim(),
-
-        phone_number:
-          form.phone_number.trim(),
-
+        first_name: form.first_name.trim(),
+        last_name: form.last_name.trim(),
+        phone_number: form.phone_number.trim(),
         age: Number(form.age),
+        gender: form.gender || undefined,
+        address: form.address.trim() || undefined,
+        department_id: Number(form.department_id),
 
-        gender:
-          form.gender || undefined,
+        /*
+         * datetime-local gives a value with no timezone
+         * (e.g. "2026-10-22T14:00"). Convert it to an exact
+         * UTC timestamp so the server and database cannot
+         * misinterpret it.
+         */
+        appointment_date: new Date(form.appointment_date).toISOString(),
 
-        address:
-          form.address.trim() ||
-          undefined,
-
-        department_id:
-          Number(
-            form.department_id,
-          ),
-
-        appointment_date:
-          form.appointment_date,
-
-        reason:
-          form.reason.trim() ||
-          undefined,
+        reason: form.reason.trim() || undefined,
       };
 
-      const response =
-        await fetch(
-          `${API_BASE_URL}/public/appointments`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type":
-                "application/json",
-              Accept:
-                "application/json",
-            },
-            body: JSON.stringify(
-              payload,
-            ),
-          },
-        );
+      const response = await fetch(`${API_BASE_URL}/public/appointments`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-      const data =
-        await parseApiResponse(
-          response,
-        );
+      const data = await parseApiResponse(response);
 
       if (!response.ok) {
         throw new Error(
-          typeof data.error ===
-            "string"
+          typeof data.error === "string"
             ? data.error
-            : typeof data.message ===
-                "string"
+            : typeof data.message === "string"
               ? data.message
               : t.generalError,
         );
       }
 
-      const appointment =
-        data.appointment;
+      const appointment = data.appointment;
 
-      if (
-        !appointment ||
-        typeof appointment !==
-          "object"
-      ) {
-        throw new Error(
-          t.generalError,
-        );
+      if (!appointment || typeof appointment !== "object") {
+        throw new Error(t.generalError);
       }
 
-      const appointmentData =
-        appointment as AppointmentResponse;
-
-      setSuccess(
-        appointmentData,
-      );
+      setSuccess(appointment as AppointmentResponse);
 
       window.setTimeout(() => {
-        document
-          .getElementById(
-            "appointment",
-          )
-          ?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+        document.getElementById("appointment")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }, 50);
     } catch (err) {
-      console.error(
-        "Failed to submit public appointment:",
-        err,
-      );
+      console.error("Failed to submit public appointment:", err);
 
-      setError(
-        err instanceof Error
-          ? err.message
-          : t.generalError,
-      );
+      setError(err instanceof Error ? err.message : t.generalError);
 
       window.setTimeout(() => {
-        document
-          .getElementById(
-            "appointment-form-error",
-          )
-          ?.focus();
+        document.getElementById("appointment-form-error")?.focus();
       }, 0);
     } finally {
       setSubmitting(false);
@@ -875,22 +582,16 @@ export default function AppointmentBooking({
    * Reset after a successful request.
    */
   function resetForm() {
-    setForm({
-      ...INITIAL_FORM,
-    });
-
+    setForm({ ...INITIAL_FORM });
     setSuccess(null);
     setError("");
+    setMinimumDateTime(getMinimumDateTime());
 
     window.setTimeout(() => {
-      document
-        .getElementById(
-          "appointment",
-        )
-        ?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+      document.getElementById("appointment")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }, 50);
   }
 
@@ -902,22 +603,24 @@ export default function AppointmentBooking({
   }
 
   const departmentSelectDisabled =
-    loadingDepartments ||
-    departments.length === 0 ||
-    submitting;
+    loadingDepartments || departments.length === 0 || submitting;
 
   /*
-   * IMPORTANT:
-   * Do not disable the submit button just because
-   * the department list is empty. Validation handles
-   * department selection.
+   * Do not disable the submit button just because the
+   * department list is empty. Validation handles that.
    */
-  const submitDisabled =
-    submitting ||
-    loadingDepartments;
+  const submitDisabled = submitting || loadingDepartments;
 
-  const characterCount =
-    form.reason.length;
+  const characterCount = form.reason.length;
+
+  const inputClass =
+    "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10";
+
+  const iconInputClass =
+    "w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10";
+
+  const labelClass =
+    "mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700";
 
   return (
     <section
@@ -950,9 +653,7 @@ export default function AppointmentBooking({
               className="rounded-3xl border border-emerald-200 bg-emerald-50/70 p-8 text-center shadow-sm sm:p-10"
             >
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-2xl text-emerald-700">
-                <FaCheckCircle
-                  aria-hidden="true"
-                />
+                <FaCheckCircle aria-hidden="true" />
               </div>
 
               <h3 className="mt-5 text-2xl font-extrabold text-slate-900">
@@ -964,39 +665,30 @@ export default function AppointmentBooking({
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-4 text-left sm:grid-cols-3">
-                {/* Reference */}
                 <div className="rounded-2xl border border-emerald-100 bg-white p-5">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     {t.reference}
                   </p>
-
                   <p className="mt-1 text-lg font-extrabold text-slate-900">
                     #{success.appointment_id}
                   </p>
                 </div>
 
-                {/* Department */}
                 <div className="rounded-2xl border border-emerald-100 bg-white p-5">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     {t.departmentLabel}
                   </p>
-
                   <p className="mt-1 text-sm font-bold text-slate-900">
                     {success.department_name}
                   </p>
                 </div>
 
-                {/* Date */}
                 <div className="rounded-2xl border border-emerald-100 bg-white p-5">
                   <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     {t.requestedDate}
                   </p>
-
                   <p className="mt-1 text-sm font-bold text-slate-900">
-                    {formatAppointmentDate(
-                      success.appointment_date,
-                      language,
-                    )}
+                    {formatAppointmentDate(success.appointment_date, language)}
                   </p>
                 </div>
               </div>
@@ -1047,74 +739,51 @@ export default function AppointmentBooking({
                 <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
                   {/* First name */}
                   <div>
-                    <label
-                      htmlFor="appointment-first-name"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                    >
+                    <label htmlFor="appointment-first-name" className={labelClass}>
                       {t.firstName}
                     </label>
 
                     <input
                       id="appointment-first-name"
                       name="first_name"
-                      value={
-                        form.first_name
-                      }
+                      value={form.first_name}
                       onChange={(event) =>
-                        updateField(
-                          "first_name",
-                          event.target.value,
-                        )
+                        updateField("first_name", event.target.value)
                       }
                       type="text"
                       autoComplete="given-name"
                       maxLength={100}
                       required
-                      placeholder={
-                        t.firstNamePlaceholder
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                      placeholder={t.firstNamePlaceholder}
+                      className={inputClass}
                     />
                   </div>
 
                   {/* Last name */}
                   <div>
-                    <label
-                      htmlFor="appointment-last-name"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                    >
+                    <label htmlFor="appointment-last-name" className={labelClass}>
                       {t.lastName}
                     </label>
 
                     <input
                       id="appointment-last-name"
                       name="last_name"
-                      value={
-                        form.last_name
-                      }
+                      value={form.last_name}
                       onChange={(event) =>
-                        updateField(
-                          "last_name",
-                          event.target.value,
-                        )
+                        updateField("last_name", event.target.value)
                       }
                       type="text"
                       autoComplete="family-name"
                       maxLength={100}
                       required
-                      placeholder={
-                        t.lastNamePlaceholder
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                      placeholder={t.lastNamePlaceholder}
+                      className={inputClass}
                     />
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label
-                      htmlFor="appointment-phone"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                    >
+                    <label htmlFor="appointment-phone" className={labelClass}>
                       {t.phone}
                     </label>
 
@@ -1127,34 +796,24 @@ export default function AppointmentBooking({
                       <input
                         id="appointment-phone"
                         name="phone_number"
-                        value={
-                          form.phone_number
-                        }
+                        value={form.phone_number}
                         onChange={(event) =>
-                          updateField(
-                            "phone_number",
-                            event.target.value,
-                          )
+                          updateField("phone_number", event.target.value)
                         }
                         type="tel"
                         inputMode="tel"
                         autoComplete="tel"
                         maxLength={20}
                         required
-                        placeholder={
-                          t.phonePlaceholder
-                        }
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                        placeholder={t.phonePlaceholder}
+                        className={iconInputClass}
                       />
                     </div>
                   </div>
 
                   {/* Age */}
                   <div>
-                    <label
-                      htmlFor="appointment-age"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                    >
+                    <label htmlFor="appointment-age" className={labelClass}>
                       {t.age}
                     </label>
 
@@ -1163,10 +822,7 @@ export default function AppointmentBooking({
                       name="age"
                       value={form.age}
                       onChange={(event) =>
-                        updateField(
-                          "age",
-                          event.target.value,
-                        )
+                        updateField("age", event.target.value)
                       }
                       type="number"
                       min={0}
@@ -1175,19 +831,14 @@ export default function AppointmentBooking({
                       inputMode="numeric"
                       autoComplete="off"
                       required
-                      placeholder={
-                        t.agePlaceholder
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                      placeholder={t.agePlaceholder}
+                      className={inputClass}
                     />
                   </div>
 
                   {/* Gender */}
                   <div>
-                    <label
-                      htmlFor="appointment-gender"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                    >
+                    <label htmlFor="appointment-gender" className={labelClass}>
                       {t.gender}
                     </label>
 
@@ -1196,40 +847,22 @@ export default function AppointmentBooking({
                       name="gender"
                       value={form.gender}
                       onChange={(event) =>
-                        updateField(
-                          "gender",
-                          event.target.value,
-                        )
+                        updateField("gender", event.target.value)
                       }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                      className={inputClass}
                     >
-                      <option value="">
-                        {t.selectGender}
-                      </option>
-
-                      <option value="male">
-                        {t.male}
-                      </option>
-
-                      <option value="female">
-                        {t.female}
-                      </option>
-
-                      <option value="other">
-                        {t.other}
-                      </option>
+                      <option value="">{t.selectGender}</option>
+                      <option value="male">{t.male}</option>
+                      <option value="female">{t.female}</option>
+                      <option value="other">{t.other}</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Address */}
                 <div className="mt-5">
-                  <label
-                    htmlFor="appointment-address"
-                    className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                  >
+                  <label htmlFor="appointment-address" className={labelClass}>
                     {t.address}
-
                     <span className="ml-2 normal-case font-medium tracking-normal text-slate-400">
                       ({t.optional})
                     </span>
@@ -1240,18 +873,13 @@ export default function AppointmentBooking({
                     name="address"
                     value={form.address}
                     onChange={(event) =>
-                      updateField(
-                        "address",
-                        event.target.value,
-                      )
+                      updateField("address", event.target.value)
                     }
                     type="text"
                     autoComplete="street-address"
                     maxLength={500}
-                    placeholder={
-                      t.addressPlaceholder
-                    }
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                    placeholder={t.addressPlaceholder}
+                    className={inputClass}
                   />
                 </div>
               </div>
@@ -1267,9 +895,7 @@ export default function AppointmentBooking({
                   </div>
 
                   <h3 className="text-lg font-extrabold text-slate-900">
-                    {
-                      t.appointmentInformation
-                    }
+                    {t.appointmentInformation}
                   </h3>
                 </div>
 
@@ -1278,7 +904,7 @@ export default function AppointmentBooking({
                   <div>
                     <label
                       htmlFor="appointment-department"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
+                      className={labelClass}
                     >
                       {t.department}
                     </label>
@@ -1286,46 +912,30 @@ export default function AppointmentBooking({
                     <select
                       id="appointment-department"
                       name="department_id"
-                      value={
-                        form.department_id
-                      }
+                      value={form.department_id}
                       onChange={(event) =>
-                        updateField(
-                          "department_id",
-                          event.target.value,
-                        )
+                        updateField("department_id", event.target.value)
                       }
                       required
-                      disabled={
-                        departmentSelectDisabled
-                      }
-                      className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm text-slate-900 outline-none transition focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10 disabled:cursor-not-allowed disabled:opacity-60"
+                      disabled={departmentSelectDisabled}
+                      className={`${inputClass} disabled:cursor-not-allowed disabled:opacity-60`}
                     >
                       <option value="">
                         {loadingDepartments
                           ? t.loadingDepartments
-                          : departments.length ===
-                              0
+                          : departments.length === 0
                             ? t.noDepartments
                             : t.selectDepartment}
                       </option>
 
-                      {departments.map(
-                        (department) => (
-                          <option
-                            key={
-                              department.department_id
-                            }
-                            value={
-                              department.department_id
-                            }
-                          >
-                            {
-                              department.department_name
-                            }
-                          </option>
-                        ),
-                      )}
+                      {departments.map((department) => (
+                        <option
+                          key={department.department_id}
+                          value={department.department_id}
+                        >
+                          {department.department_name}
+                        </option>
+                      ))}
                     </select>
 
                     {departmentError && (
@@ -1336,12 +946,8 @@ export default function AppointmentBooking({
 
                         <button
                           type="button"
-                          onClick={
-                            handleRetryDepartments
-                          }
-                          disabled={
-                            loadingDepartments
-                          }
+                          onClick={handleRetryDepartments}
+                          disabled={loadingDepartments}
                           className="text-xs font-bold text-teal-700 hover:text-teal-800 focus:outline-none focus:underline disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           {t.retryDepartments}
@@ -1352,10 +958,7 @@ export default function AppointmentBooking({
 
                   {/* Appointment date/time */}
                   <div>
-                    <label
-                      htmlFor="appointment-date"
-                      className="mb-2 block text-xs font-bold uppercase tracking-wider text-slate-700"
-                    >
+                    <label htmlFor="appointment-date" className={labelClass}>
                       {t.date} & {t.time}
                     </label>
 
@@ -1368,21 +971,14 @@ export default function AppointmentBooking({
                       <input
                         id="appointment-date"
                         name="appointment_date"
-                        value={
-                          form.appointment_date
-                        }
+                        value={form.appointment_date}
                         onChange={(event) =>
-                          updateField(
-                            "appointment_date",
-                            event.target.value,
-                          )
+                          updateField("appointment_date", event.target.value)
                         }
                         type="datetime-local"
-                        min={
-                          minimumDateTime
-                        }
+                        min={minimumDateTime || undefined}
                         required
-                        className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3.5 pl-10 pr-4 text-sm text-slate-900 outline-none transition focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
+                        className={iconInputClass}
                       />
                     </div>
                   </div>
@@ -1396,7 +992,6 @@ export default function AppointmentBooking({
                       className="block text-xs font-bold uppercase tracking-wider text-slate-700"
                     >
                       {t.reason}
-
                       <span className="ml-2 normal-case font-medium tracking-normal text-slate-400">
                         ({t.optional})
                       </span>
@@ -1412,16 +1007,11 @@ export default function AppointmentBooking({
                     name="reason"
                     value={form.reason}
                     onChange={(event) =>
-                      updateField(
-                        "reason",
-                        event.target.value,
-                      )
+                      updateField("reason", event.target.value)
                     }
                     rows={4}
                     maxLength={1000}
-                    placeholder={
-                      t.reasonPlaceholder
-                    }
+                    placeholder={t.reasonPlaceholder}
                     className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3.5 text-sm leading-relaxed text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-teal-600 focus:bg-white focus:ring-2 focus:ring-teal-600/10"
                   />
                 </div>
@@ -1432,17 +1022,12 @@ export default function AppointmentBooking({
                 <button
                   type="submit"
                   disabled={submitDisabled}
-                  aria-disabled={
-                    submitDisabled
-                  }
+                  aria-disabled={submitDisabled}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-teal-700 py-4 text-sm font-bold text-white shadow-lg shadow-teal-700/20 transition hover:bg-teal-800 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? (
                     <>
-                      <FaSpinner
-                        aria-hidden="true"
-                        className="animate-spin"
-                      />
+                      <FaSpinner aria-hidden="true" className="animate-spin" />
                       {t.submitting}
                     </>
                   ) : (
